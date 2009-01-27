@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="M.S">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="grad"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="so">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="undergraduate"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="redshirt">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="fe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="jun">
+    <rdfs:subClassOf rdf:resource="#undergraduate"/>
+  </owl:Class>
+  <owl:Class rdf:about="#fe">
+    <rdfs:subClassOf rdf:resource="#undergraduate"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ph.D">
+    <rdfs:subClassOf rdf:resource="#grad"/>
+  </owl:Class>
+  <owl:Class rdf:ID="se">
+    <rdfs:subClassOf rdf:resource="#undergraduate"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

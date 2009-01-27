@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<tree>
+<node name="DS1_DS2_DS3" fragmentationType="horizontal">
+	<dataSourceDescriptor file="userviewdesc.xml" />
+	<children>
+		<node name="DS1" fragmentationType="horizontal">
+			<dbInfo type="mysql" host="mccarthy.cs.iastate.edu" DRIVER="org.postgresql.Driver" datasource="DS1" />
+			<dataSourceDescriptor file="ds1desc.xml" />
+		</node>
+		<node name="DS2_DS3" fragmentationType="horizontal">
+			<children joincol="key2" joinTable="EMPLOYEETABLE"  type="int"> <!-- other type could be varchar -->
+				<node name="DS2" fragmentationType="vertical">
+					<dbInfo type="mysql" host="mccarthy.cs.iastate.edu" DRIVER="org.postgresql.Driver" datasource="DS2" />
+					<dataSourceDescriptor file="ds2desc.xml" />
+				</node>
+				<node name="DS3" fragmentationType="vertical">
+					<dbInfo type ="mysql" host="mccarthy.cs.iastate.edu" DRIVER="org.postgresql.Driver" datasource="DS3" />
+					<dataSourceDescriptor file="ds3desc.xml" />
+				</node>
+			</children>
+		</node>
+	</children>
+</node>
+</tree>

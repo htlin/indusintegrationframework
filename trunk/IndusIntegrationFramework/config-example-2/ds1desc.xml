@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+ <descriptors>
+ <descriptor>
+ <!-- type could be relational:mysql  or relational:postgre  and so on -->
+ <!--  type could be custom:className   The ClassName being the object which is responsible for getting results-->
+<datasource name="DS1">
+<table name="DS1_Table">
+  <column name="id" type="varchar" /> 
+  <column name="status" type="varchar">
+  <!--  the base is used to construct a URI for the value stored in the table
+  e.g if the table stores a value status. It would correspond to URI ${base}/status
+   -->
+  <operation type="AVH" base="http://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontology="http://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontLoc="ont1.owl" /> 
+  </column>
+  <column name="compensation" type="float4" /> 
+  <column name="alias" type="varchar" /> 
+  <column name="servicelength" type="int4" /> 
+  </table>
+  </datasource>
+  </descriptor>
+  </descriptors>
+

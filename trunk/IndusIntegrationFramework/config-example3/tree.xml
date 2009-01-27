@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<tree>
+<node name="DS1_DS2_DS3" fragmentationType="horizontal">
+	<dataSourceDescriptor file="userviewdesc.xml" />
+	<children>
+		<node name="DS1" fragmentationType="horizontal">
+			<dbInfo type="mysql"  datasource="votes1" />
+			<dataSourceDescriptor file="userviewdesc.xml" />
+		</node>
+		<node name="DS2_DS3" fragmentationType="horizontal">
+			<children>
+				<node name="DS2" fragmentationType="horizontal">
+					<dbInfo type="mysql"  datasource="votes2" />
+					<dataSourceDescriptor file="userviewdesc.xml" />
+				</node>
+				<node name="DS3" fragmentationType="horizontal">
+					<dbInfo type ="mysql"  datasource="votes3" />
+					<dataSourceDescriptor file="userviewdesc.xml" />
+				</node>
+			</children>
+		</node>
+	</children>
+</node>
+</tree>
