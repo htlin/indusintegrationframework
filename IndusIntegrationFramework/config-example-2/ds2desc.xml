@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<descriptors>
+	<descriptor>
+		<datasource name="DS2" >
+			<table name="DS2_Table">
+				<column name="ssn" type="varchar" />
+				<column name="type"  type ="varchar">
+				 <operation type="AVH" base="http://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH" ontology="http://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH" ontLoc="ont2.owl" /> 
+				 </column>
+			</table>
+		</datasource>
+	</descriptor>
+</descriptors>

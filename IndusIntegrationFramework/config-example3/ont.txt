@@ -1,0 +1,16 @@
+;typename=voteType
+;subTypeOf=AVH
+;ordername=ISA
+xmlns:n0=www.ailab.iastate.edu/indus/uView/ont0
+n0:voteType_AVH{
+..\voteType_AVH\yes
+..\voteType_AVH\no
+}
+;typename=classType
+;subTypeOf=AVH
+;ordername=ISA
+xmlns:n0=www.ailab.iastate.edu/indus/uView/ont0
+n0:classType_AVH{
+..\classType_AVH\democrat
+..\classType_AVH\republican
+}

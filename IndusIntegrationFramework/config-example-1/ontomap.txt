@@ -1,0 +1,18 @@
+# NEW FORMAT. Allows to Read as properties
+
+#format: (targetDataSource-->userView)  UserView is always on RHS
+#targetDataSource@ontologyId@classId = [EQUAL|SUPER|SUB]@ontologyI@classId =
+#both OntoloyId and classId should be valids URI
+# exception id classId begins with "_" it means it is relative to URI of the ontologI
+
+
+#For Data Source DS1
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_junior=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_jun
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_graduate=SUPER@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_M.S
+#Also do without the mapping below (should result in empty In clause )
+#DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_undergraduate=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_undergraduate
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_freshman=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_fe
+
+#For Data Source DS2
+DS2@www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_junior=SUPER@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_redshirt
+DS2@www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_fresh=SUB@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_undergraduate

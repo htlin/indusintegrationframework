@@ -1,0 +1,25 @@
+# NEW FORMAT. Allows to Read as properties
+
+#format: (targetDataSource-->userView)  UserView is always on RHS
+#targetDataSource@ontologyId@classId = [EQUAL|SUPER|SUB]@ontologyI@classId =
+#both OntoloyId and classId should be valids URI
+# exception id classId begins with "_" it means it is relative to URI of the ontologI
+
+
+#For Data Source DS1
+DS1@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes
+DS1@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no
+DS1@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat
+DS1@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican
+
+#For Data Source DS2
+DS2@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes
+DS2@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no
+DS2@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat
+DS2@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican
+
+#For Data Source DS3
+DS3@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_yes
+DS3@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/voteType_AVH@_no
+DS3@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_democrat
+DS3@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/classType_AVH@_republican
