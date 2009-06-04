@@ -1,4 +1,4 @@
-package org.iastate.ailab.qengine.core;
+package org.iastate.ailab.qengine;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +11,8 @@ import junit.framework.Assert;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.iastate.ailab.qengine.core.QueryEngine;
+import org.iastate.ailab.qengine.core.QueryResult;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,10 +20,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
+ * 
  * @author neeraj
+ * 
  */
-public class QueryEngineTest {
-
+public class SanityTestQueries {
+   /**
+    * After changes these tests should always be run in addition to
+    * SanityTestQueries
+    */
    static {
       BasicConfigurator.configure();
       Logger.getRootLogger().setLevel(Level.DEBUG);
@@ -75,34 +82,19 @@ public class QueryEngineTest {
 
    /*
     * TODO - The tests below have been extracted from the class Main.
-    * Currently They require fixing Consider renaming these tests and
-    * adding more code to automatically verify correctness.
+    * Consider renaming these tests and adding more code to automatically
+    * verify correctness.
     */
 
    @Test
-   public void testQuery03() {
-      System.out.println("testQuery3");
+   public void testQuery01() {
+      System.out.println("testQuery1");
 
-      String query = "SELECT firstname  FROM EMPLOYEETABLE where position='grad' OR  firstname='neeraj';";
-      System.out.println("Query: " + query);
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
+      //String query = "SELECT position  FROM EMPLOYEETABLE  WHERE benefits > 1400;";
 
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-   }
+      String query = "SELECT position  FROM EMPLOYEETABLE  WHERE timehere > 0;";
+      query = "select firstname from EMPLOYEETABLE where position > 'redshirt';";
 
-   @Test
-   public void testQuery04() {
-      System.out.println("testQuery4");
-
-      String query = "SELECT firstname  FROM EMPLOYEETABLE where position='grad' OR  firstname='neeraj' AND key2 > 45;";
       System.out.println("Query: " + query);
       try {
          QueryResult result = engine.execute(query);
@@ -119,10 +111,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery05() {
-      System.out.println("testQuery5");
+   public void testQuery02() {
+      System.out.println("testQuery2");
 
-      String query = "SELECT firstname  FROM EMPLOYEETABLE where position='grad' AND  firstname='neeraj' AND social > 45;";
+      String query = "SELECT firstname,benefits FROM EMPLOYEETABLE;";
       System.out.println("Query: " + query);
       try {
          QueryResult result = engine.execute(query);
@@ -139,31 +131,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery09() {
-      System.out.println("testQuery9");
+   public void testQuery06() {
+      System.out.println("testQuery6");
 
-      String query = "select * from EMPLOYEETABLE;";
-      System.out.println("Query: " + query);
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
-
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-
-   }
-
-   @Test
-   public void testQuery11() {
-      System.out.println("testQuery11s");
-
-      String query = "select firstname from EMPLOYEETABLE where (position='manager' OR firstname='Steve') OR timehere > 3;";
+      String query = "SELECT firstname  FROM EMPLOYEETABLE where position='grad' AND  firstname='neeraj' AND key2 > 45;";
       System.out.println("Query: " + query);
       try {
          QueryResult result = engine.execute(query);
@@ -180,10 +151,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery12() {
-      System.out.println("testQuery12");
+   public void testQuery07() {
+      System.out.println("testQuery7");
 
-      String query = "SELECT firstname, position  FROM EMPLOYEETABLE where position='manager' OR firstname='Steve' AND key2 > 45;";
+      String query = "Select position   FROM EMPLOYEETABLE where  benefits > 4000;";
       System.out.println("Query: " + query);
       try {
          QueryResult result = engine.execute(query);
@@ -191,7 +162,6 @@ public class QueryEngineTest {
 
          ResultSet rs = result.getResultSet();
          Assert.assertNotNull(rs); //should get some result
-
          display(rs, query);
       } catch (Exception e) {
          Assert.fail(e.getMessage());
@@ -200,10 +170,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery13() {
-      System.out.println("testQuery13");
+   public void testQuery08() {
+      System.out.println("testQuery8");
 
-      String query = "select * from EMPLOYEETABLE where (position >'jun' AND timehere > 1) OR (firstname='Steve' AND key2 > 45);";
+      String query = "select firstname, position, benefits from EMPLOYEETABLE where benefits > 4000;";
       System.out.println("Query: " + query);
       try {
          QueryResult result = engine.execute(query);
@@ -211,28 +181,29 @@ public class QueryEngineTest {
 
          ResultSet rs = result.getResultSet();
          Assert.assertNotNull(rs); //should get some result
-
          display(rs, query);
       } catch (Exception e) {
          Assert.fail(e.getMessage());
          e.printStackTrace();
       }
+
    }
 
    @Test
-   public void testQuery14() {
-      System.out.println("testQuery14");
+   public void testQuery15() {
+      System.out.println("testQuery15");
 
-      String query = "select COUNT(firstname) from EMPLOYEETABLE where benefits > 4000 or position='manager';";
+      String query = "select COUNT(firstname) from EMPLOYEETABLE where firstname='John' OR firstname='Neeraj' OR firstname='scout';";
       System.out.println("Query: " + query);
+
       try {
          QueryResult result = engine.execute(query);
          Assert.assertNotNull(result);
 
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
+         int count = result.getCount().intValue();
+         //TODO should this count be verified?
 
-         display(rs, query);
+         System.out.println("Count is: " + count);
       } catch (Exception e) {
          Assert.fail(e.getMessage());
          e.printStackTrace();
@@ -240,10 +211,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery16() {
-      System.out.println("testQuery16");
+   public void testQuery22() {
+      System.out.println("testQuery22");
 
-      String query = "select COUNT(firstname) from EMPLOYEETABLE where (select firstname, position from EMPLOYEETABLE where (position='manager' AND timehere > 1) OR (firstname='Steve' AND key > 45)) > 2;";
+      String query = "select position from EMPLOYEETABLE where firstname='raj' OR firstname='remy';";
       System.out.println("Query: " + query);
 
       try {
@@ -261,71 +232,10 @@ public class QueryEngineTest {
    }
 
    @Test
-   public void testQuery17() {
-      System.out.println("testQuery17");
+   public void testQuery24() {
+      System.out.println("testQuery24");
 
-      String query = "select firstname from EMPLOYEETABLE where firstname='Steve';";
-      System.out.println("Query: " + query);
-
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
-
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-   }
-
-   @Test
-   public void testQuery18() {
-      System.out.println("testQuery18");
-
-      String query = "select * from EMPLOYEETABLE where (position >'redshirt' AND timehere > 1) OR (firstname='Steve' AND key2 > 45);";
-      System.out.println("Query: " + query);
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
-
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-   }
-
-   @Test
-   public void testQuery19() {
-      System.out.println("testQuery19");
-
-      String query = "SELECT firstname  FROM EMPLOYEETABLE WHERE  IN ('Manager', 'Staff') OR status > 'grad';";
-      System.out.println("Query: " + query);
-
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
-
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-   }
-
-   @Test
-   public void testQuery21() {
-      System.out.println("testQuery21");
-
-      String query = "select key2 from EMPLOYEETABLE where firstname='raj' OR firstname='remy';";
+      String query = "select firstname, position from EMPLOYEETABLE;";
       System.out.println("Query: " + query);
 
       try {

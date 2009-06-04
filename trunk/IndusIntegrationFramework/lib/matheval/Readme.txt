@@ -3,6 +3,7 @@ Freeware V1.01
 by The-Son LAI 
 Lts@writeme.com 
 http://Lts.online.fr 
+http://lts.online.fr/dev/java/math.evaluator/
 ______________________________________________________________
 
 V 1.01 (18/10/01) added rnd function : rnd(7) will return a number between 0 and 6.99...

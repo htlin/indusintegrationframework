@@ -6,5 +6,5 @@ import java.sql.Statement;
 import org.iastate.ailab.qengine.core.datasource.DataNode;
 
 public interface ResponseFlow {
-   public ResultSet execute(DataNode node, Statement stmt);
+   public ResultSet execute(DataNode node, Statement stmt) throws Exception;
 }

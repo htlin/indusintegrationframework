@@ -247,7 +247,7 @@ public class DefaultDataNodeImplementation implements DataNode {
    }
 
    // This is where the whole thing occurs
-   public ResultSet execute(Object query, Statement stmt) {
+   public ResultSet execute(Object query, Statement stmt) throws Exception {
       // TODO: Add logic to see if the query can be answered by this node
       ZQuery currQuery = (ZQuery) query;
       this.setNodeQuery(currQuery);
@@ -258,7 +258,7 @@ public class DefaultDataNodeImplementation implements DataNode {
    }
 
    // we should never use this one if we want results back as a ResultSet
-   public void execute(Object query) {
+   public void execute(Object query) throws Exception {
       Statement stmt = null;
       this.execute(query, stmt);
    }

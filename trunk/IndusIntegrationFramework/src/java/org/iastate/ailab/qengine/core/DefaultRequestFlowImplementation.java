@@ -28,8 +28,10 @@ public class DefaultRequestFlowImplementation implements RequestFlow {
    // static int i =0;
    int i = 0;
 
-   public void execute(DataNode node, Object query) {
+   public void execute(DataNode node, Object query) throws Exception {
 
+      String testNodeName = node.getNodeName();
+      System.out.println("execution started for " + testNodeName);
       ZQuery nodeQuery = (ZQuery) query;
       if (QueryUtils.isCountQuery(nodeQuery)) {
          node.setQueryType(QueryType.COUNT_QUERY);
@@ -110,7 +112,8 @@ public class DefaultRequestFlowImplementation implements RequestFlow {
          aggregator.setDataNode(node);
          node.setDataAggregator(aggregator);
 
-         printPlanToLogger(plan);
+         //printPlanToLogger(plan);
+         printPlan(plan);
 
          Vector<DataNode> children = node.getChildren();
          for (int i = 0; i < children.size(); i++) {
