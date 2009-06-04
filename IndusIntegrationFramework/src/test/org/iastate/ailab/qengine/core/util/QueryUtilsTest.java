@@ -44,10 +44,13 @@ public class QueryUtilsTest {
    @Test
    public void testGetWhereColumns() throws ParseException {
       System.out.println("testGetWhereColumns");
+      String input = "select COUNT(*) from EMPLOYEETABLE where ((EMPLOYEETABLE.key2 = 's4') OR (EMPLOYEETABLE.key2 = 's1') OR (EMPLOYEETABLE.key2 = 's2') OR (EMPLOYEETABLE.key2 = 's3'));";
+      input = "select COUNT(*) from EMPLOYEETABLE where (EMPLOYEETABLE.key2 IN ('s1','s2','s3','s4'));";
 
       // String input = "select firstname, position from EMPLOYEETABLE where (position='manager' AND timehere > 1) OR (firstname='Steve' AND key > 45);";
       // String input = "Select COUNT(*) FROM votes_train WHERE Class='democrat'   AND handicapped-infants='n';";
-      String input = "select COUNT(*) from EMPLOYEETABLE where position2 > 'redshirt2' AND  neeraj='koul';";
+
+      //String input = "select COUNT(*) from EMPLOYEETABLE where position2 > 'redshirt2' AND  neeraj='koul';";
       ZqlParser parser = new ZqlParser();
       ByteArrayInputStream inpStream = new ByteArrayInputStream(input
             .getBytes());

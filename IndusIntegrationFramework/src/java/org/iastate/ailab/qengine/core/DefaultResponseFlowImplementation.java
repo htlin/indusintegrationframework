@@ -29,7 +29,7 @@ public class DefaultResponseFlowImplementation implements ResponseFlow {
    // this.responseFlowQuery = responseFlowQuery;
    //}
 
-   public ResultSet execute(DataNode node, Statement stmt) {
+   public ResultSet execute(DataNode node, Statement stmt) throws Exception {
       ResultSet rs = null;
 
       logger.debug("Response Flow Executing for node=" + node.getNodeName()
@@ -129,8 +129,7 @@ public class DefaultResponseFlowImplementation implements ResponseFlow {
 
    // get the values we want to use in the where clause
    /**
-    * Get a Vector<String> of all key values to be used in the where
-    * clause
+    * Get a Vector<String> of all key values to be used in the where clause
     * 
     * @param node Current data node
     * @return Vector of Strings containing all key values
@@ -139,8 +138,8 @@ public class DefaultResponseFlowImplementation implements ResponseFlow {
       Vector<DataNode> children = node.getChildren();
 
       /*
-       * Assumes binary tree String table1 = children.get(0).getNodeName() +
-       * "_table"; String table2 = children.get(1).getNodeName() +
+       * Assumes binary tree String table1 = children.get(0).getNodeName()
+       * + "_table"; String table2 = children.get(1).getNodeName() +
        * "_table";
        * 
        * String selectCol1 = getSelectColumns(children.get(0)); String

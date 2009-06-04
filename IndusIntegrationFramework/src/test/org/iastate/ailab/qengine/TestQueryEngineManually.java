@@ -47,9 +47,14 @@ public class TestQueryEngineManually {
    }
 
    private static void createEngine() throws IOException {
+      /*
+       * String configFile = System.getProperty("user.dir") +
+       * System.getProperty("file.separator") + "config-example-1" +
+       * System.getProperty("file.separator") + "view.txt";
+       */
       String configFile = System.getProperty("user.dir")
-            + System.getProperty("file.separator") + "config-example-1"
-            + System.getProperty("file.separator") + "view.txt";
+            + System.getProperty("file.separator") + "config-example-1";
+
       try {
          engine = new QueryEngine(configFile);
       } catch (FileNotFoundException e) {
@@ -71,9 +76,12 @@ public class TestQueryEngineManually {
       parser.initParser(inpStream);
 
       ZQuery query = (ZQuery) parser.readStatements().get(0);
-      
-      System.out.println("Parsed query: " + query);
 
-      engine.execute(query);
+      System.out.println("Parsed query: " + query);
+      try {
+         engine.execute(query);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
    }
 }

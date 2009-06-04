@@ -10,7 +10,6 @@ import org.iastate.ailab.qengine.core.aggregators.DataAggregator;
 
 import Zql.ZQuery;
 
-
 public interface DataNode {
    //declare enums
    public enum NodeLocation {
@@ -249,11 +248,11 @@ public interface DataNode {
    public boolean isAnswerableQuery(Object query);
 
    //the workhorse for our default Implementation the query will be Zquery
-   public void execute(Object query);
+   public void execute(Object query) throws Exception;
 
    /*
     * we must pass the Statement object around so that it will be open when
     * the ResultSet is returned to the user
     */
-   public ResultSet execute(Object query, Statement stmt);
+   public ResultSet execute(Object query, Statement stmt) throws Exception;
 }

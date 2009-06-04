@@ -1,9 +1,11 @@
 package org.iastate.ailab.qengine.core;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.math.BigInteger;
 import java.sql.ResultSet;
@@ -49,7 +51,6 @@ public class QueryEngine {
     * viewConfigFile; init(); }
     */
 
-  
    public QueryEngine(String base) throws ConfigurationException,
          FileNotFoundException, IOException {
       //TODO: Wrap as Configuration Exception
@@ -103,17 +104,17 @@ public class QueryEngine {
          throw e;
       }
    }
-   
-   public  DataSourceDescriptor getViewDescriptor() {
+
+   public DataSourceDescriptor getViewDescriptor() {
       return Init._this().getUserViewDataSourceDescriptor();
    }
 
-   public QueryResult execute(String query) {
+   public QueryResult execute(String query) throws Exception {
       ZQuery q = QueryUtils.getZQueryFromString(query);
       return this.execute(q);
    }
 
-   public QueryResult execute(ZQuery query) {
+   public QueryResult execute(ZQuery query) throws Exception {
       Statement stmt = null;
       QueryResult qr = new QueryResult();
 
@@ -201,6 +202,50 @@ public class QueryEngine {
          out.println(rows);
       } catch (Exception e) {
          out.println("Exception displaying this ResultSet in QueryEngine!");
+      }
+   }
+
+   public static void main(String[] arg) {
+      //TODO  Test as a command line jar
+
+      QueryEngine engine = null;
+      if (arg == null) {
+         System.out
+               .println("check usage: An argument must be passed pointing to the baseDirectory");
+      }
+      String baseDir = arg[0];
+      try {
+         engine = new QueryEngine(baseDir);
+      } catch (FileNotFoundException e) {
+         System.out.println("FileNotFoundException for baseDir: " + baseDir);
+      } catch (IOException e) {
+         System.out.println("IOException for the baseDir: " + baseDir);
+      }
+
+      BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+      String input = "";
+      while (true) {
+
+         System.out.print("Enter query to execute or q to quit.");
+
+         try {
+            input = in.readLine();
+         } catch (IOException e) {
+            System.out.println("Error Reading Input");
+            e.printStackTrace();
+         }
+
+         if ("q".equalsIgnoreCase(input)) {
+
+            break;
+         } else {
+            try {
+               engine.execute(input);
+            } catch (Exception e) {
+               System.out.println(e.getMessage());
+               e.printStackTrace();
+            }
+         }
       }
    }
 }

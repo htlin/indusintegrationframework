@@ -40,6 +40,8 @@ public class DefaultDataAggregatorImplementation implements DataAggregator {
       case DATA_UNION: // these two should be the same
          if (node.getQueryType() == QueryType.DATA_QUERY) {
             ZQuery query = getUnionQuery();
+            logger.debug("Default Data Aggregation(" + type + ")"
+                  + "query to execute-> \n" + query.toString() + "\n");
             try {
                rs = DatabaseUtils.queryDataSource(node, query, stmt, true);
             } catch (SQLException e) {
@@ -62,6 +64,8 @@ public class DefaultDataAggregatorImplementation implements DataAggregator {
       case DATA_COMMON: // vertical
          // we use a string query here because ZQuery apparently does not like join queries			
          String q = getCommonQuery();
+         logger.debug("Default Data Aggregation(" + type + ")"
+               + "query to execute-> \n" + q.toString() + "\n");
          rs = DatabaseUtils.queryDataSource(node, q, stmt, true);
          break;
       case PASS_THROUGH:
@@ -80,7 +84,8 @@ public class DefaultDataAggregatorImplementation implements DataAggregator {
             }
          } else if (!node.isLeafNode()) {
             ZQuery query = getPassThroughQuery();
-
+            logger.debug("Default Data Aggregation(" + type + ")"
+                  + "query to execute-> \n" + query.toString() + "\n");
             rs = DatabaseUtils.queryDataSource(node, query, stmt, true);
          } else {
             // it is leaf node with DataQuery
@@ -90,6 +95,8 @@ public class DefaultDataAggregatorImplementation implements DataAggregator {
       case EXECUTE_LOCAL_QUERY:
          // we use a string query here because ZQuery apparently does not like join queries			
          q = getLocalQuery();
+         logger.debug("Default Data Aggregation(" + type + ")"
+               + "query to execute-> \n" + q.toString() + "\n");
          if (node.getQueryType() == QueryType.DATA_QUERY) {
             rs = DatabaseUtils.queryDataSource(node, q, stmt, true);
          } else if (node.getQueryType() == QueryType.COUNT_QUERY) {
