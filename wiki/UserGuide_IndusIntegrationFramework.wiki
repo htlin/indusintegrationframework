@@ -136,3 +136,32 @@ Description of attributes: //TODO finish table
 ||operation: ontLoc||	<path_to_ontLoc>||	The relative path to the file that describes the ontology.||
 
 
+==OntLoc File==
+
+The ontLoc file is a file  that contains an  attribute value hierarchy that  can be associated  with an attribute  in the data source. The framework supports a custom format to specify the ontology and can also be configured to read attribute value hierarchies  written in OWL syntax. Developers can add support to attribute value hierarchies in their own custom format by implementing the interface  _org.iastate.ailab.qengine.core.reasoners.impl.OntologyParser .core.reasoners.impl.DefaultOntologyParserImpl_.
+
+The default format for a single ontology is:
+
+Three key/value pairs proceeded by a single semicolon (;). These are for information purposes only
+
+The three key/value pairs are:
+
+|| *Key*||	*Value*||	*Comments*||
+||typename||	<attributeName>Type||	attributeName is the column in the table with which ontology is used||
+||subTypeOf||	AVH||	 fixed||
+||ordername||	ISA||	fixed||
+
+Following the key/value pairs is an optional alias that would be used to shorten the URIs for each item in the ontology.  The alias is a key/value pair that is preceded by the string “xmlns:” (without quotes).  Of course, the key is the alias and the value is a common portion of the URIs for the items in the ontology.
+
+Finally, the structure of the ontology begins with… followed by a open curly brace ({).  Each line between the curly braces is the URI to an item in the ontology.  If using an alias, use double periods (..) to denote the use of the alias.  The rest of the line should complete the URI for an item of the ontology.  All items in the ontology that are refered to in the Ontology Map file must be present.  After the last URI, there must be a closing curly brace (}).
+
+More than one ontology can be within the same file.
+
+Comments begin with the pound sign (#) or double forward slashes (//) and continue until the end of the line.
+
+See the appendix for an example.
+
+
+==Running Indus==
+
+==Dependant Jars==
