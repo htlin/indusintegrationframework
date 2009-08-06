@@ -1,4 +1,6 @@
-=User Guide for Indus Integration Framework=
+#summary User Guide for INDUS Integration Framework
+
+=User Guide for INDUS Integration Framework=
 
 ==== _IOWA STATE UNIVERSITY_ ====
 
