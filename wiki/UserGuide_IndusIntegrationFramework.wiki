@@ -3,9 +3,9 @@
 =INDUS INTEGRATION FRAMEWORK=
 =USER'S GUIDE=
 
-_*Contents*_
+*Contents*
 
-[About INDUS UserGuide_IndusIntegrationFramework#About INDUS] 	
+About INDUS 	
 What is INDUS?	
 Where can I download/get INDUS?	
 How do/can I contribute?	
