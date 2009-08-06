@@ -69,7 +69,7 @@ The DTreeFile describes the structure of the data aggregation tree.  It is an XM
 
 
 
-||*Elements*||*Attributes*||*Subelements*||*Comments*||
+|| *Elements* || *Attributes* || *Subelements* || *Comments* ||
 ||Tree||	||	Node||	This is the root element.||
 ||node||name, fragmentationType||	dataSourceDescriptor, children, dbInfo||	If the node is a leaf node, it must contain the subelements _dbInfo_ and _dataSourceDescriptor_, otherwise it must contain the subelement _children_ except for the root node, which always has the element _dataSourceDescriptor_.||
 ||dataSourceDescriptor||	File||   ||  ||		
