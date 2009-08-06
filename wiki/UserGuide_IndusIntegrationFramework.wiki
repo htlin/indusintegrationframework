@@ -33,11 +33,9 @@ This is the main configuration file  that sets up the  INDUS framework.  This fi
 
 
 ||*Key*||*Value*||*Comments*||
-||driver_<rdbms>||<driver_class>||Examples of <rdbms>:
-mysql, postgress, oracle
-Examples of <driver_class>:
-com.mysql.jdbc.Driver, org.postgresql.Driver
-The current version has been tested with mysql||
+
+||driver_<rdbms>||<driver_class>||Examples of <rdbms>:mysql, postgress, oracle Examples of <driver_class>:com.mysql.jdbc.Driver, org.postgresql.Driver The current version has been tested with mysql||
+
 ||dbname_indus||<DB_name>||Name of the database in which INDUS will store temporary results||
 ||hostname_indus||<URL_to_DB>||Location of a database in which INDUS will store temporary results||
 ||dbtype_indus||<DB_type>||Type of the database in which INDUS will store temporary results.  It must match <rdbms> for one of the driver keys provided above.||
