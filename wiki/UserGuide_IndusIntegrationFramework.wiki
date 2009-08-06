@@ -202,7 +202,334 @@ QuerEngine engine = new QueryEngine(baseDir); //configure the Engine
 String query1 = "select COUNT(*) from EMPLOYEETABLE;";
 QueryResult result1 = Engine.execute execute (query1);  //Execute a query
 
-String query2 = "select COUNT(*) from EMPLOYEETABLE where position >  'redshirt';";
 
-QueryResult result2 = Engine.execute(query2); //Execute Another Query
+==Common Problems==
+//TODO
+
+==Vocabulary lesson==
+*	ARFF file
+	  *ARFF stands for Attribute-Relation File Format.  It was developed by the    Machine Learning Project at the Department of Computer Science of The University of Waikato for use with the Weka machine learning software.
+*	AVH
+           *An attribute value hierarchy is… //TODO finish definition
+*	Closed-World Semantics
+           *Under closed-world semantics, it is assumed that "if proposition P cannot be proved True, then assume that P is False”.
+o	See Open-World Semantics
+•	Current Working Directory
+o	The current working directory is specific to a process and allows that process to use file paths relative to that directory.
+o	See http://en.wikipedia.org/wiki/Working_directory
+•	Database
+o	A database is a structured collection of records or data that is stored in a computer system
+o	See http://en.wikipedia.org/wiki/Database
+o	Some popular databases are:
+	DB2 (by IBM)
+	MySQL (by MySQL AB but recently bought by Sun Microsystems)
+	Oracle (by Oracle Corporation)
+•	Data Source
+o	A data source is an abstract view of what is normally viewed as a database.  Currently, the two instances of a data source are a database and ARFF file.
+•	Data Source Tree (DTree)
+o	A data source tree is a tree where the nodes are data sources.  More specifically, the leaves are actual physical data sources and non-leaves are virtual data sources created by INDUS.  The root of this tree is the user view.
+•	Horizontal Fragmentation
+o	Data is horizontally fragmented when (possibly overlapping) subsets of data tuples are stored at different sites.
+o	See Vertical Fragmentation
+•	INDUS
+o	INDUS stands for Intelligent Data Understanding System
+o	See http://www.cild.iastate.edu/~honavar/nsfitr02.html 
+•	Java Properties file
+o	A Java Properties file is a map of keys and values.
+o	Comments in this file begin with the pound sing (#) and continue until the end of the line.
+o	See http://java.sun.com/javase/6/docs/api/java/util/Properties.html
+•	Ontology
+o	An ontology is a representation of a set of concepts within a domain and the relationships between those concepts.
+o	See http://en.wikipedia.org/wiki/Ontology_(computer_science)
+•	Open-World Semantics
+o	Under open-world semantics, if a proposition P cannot proved or disproved, then P is unknown.
+o	See Closed-World Semantics 
+•	RDBMS
+o	RDBMS stands for Relational DataBase Management System.  It is the most common type of database used to day.
+o	See http://en.wikipedia.org/wiki/Relational_database_management_system
+•	SQL
+o	It is a database programming language for reading and writing data in a database
+o	See http://en.wikipedia.org/wiki/SQL
+•	URI
+o	A Uniform Resource Identifier is a compact string of characters used to identify or name a resource.
+o	See http://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+•	User View
+o	The user view is the root view of the data source tree.  The user will write queries and receive results with respect to this view.
+•	Vertical Fragmentation
+o	This occurs from distribution of subtuples of the data tuples among various sites. f
+o	See Horizontal Fragmentation
+•	XML
+o	XML stands for eXtensible Markup Language and is a general-purpose markup language
+o	Comments in this file start with “<!--" and continue until “-->” and cannot contain “--" within the comment.
+o	See http://en.wikipedia.org/wiki/XML
+
+
+
+ 
+==Running INDUS==
+
+==Setup Tutorial==
+
+//TODO
+
+==Example Queries==
+//TODO
+
+==Credits==
+//TODO
+
+==Appendix==
+
+Examples of Various Configuration File  For a Sample Example
+
+Examples of Various Configuration File  For a Sample Example
+•	 indus.conf
+{{{
+# The Driver for various types of relational databases
+
+driver_mysql=com.mysql.jdbc.Driver
+driver_postgress=org.postgresql.Driver
+
+#the name of the default database where internal results are storeddbname_indus=indus
+# where indus is hosted
+hostname_indus=localhost
+#indus dbtype
+dbtype_indus=mysql
+
+#username password of various datasources
+
+account_indus=Indususer;induspasswd
+account_DS1=neerajkoul1;pass1
+account_DS2=neerajkoul2;pass2
+account_DS3=neerajkoul3;pass33
+
+#Uncomment below if you want to change to another file
+view_filename=view.txt
+
+}}}
+
+
+
+•	UserView  (view.txt)
+
+{{{
+UserViewName=DS1_DS2_DS3
+DTreeFile=tree.xml
+SchemaMap=schemamap.txt
+OntologyMap=ontomap.txt
+
+}}}
+
+DTree (tree.xml)
+{{{
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<tree>
+<node name="DS1_DS2_DS3" fragmentationType="horizontal">
+	<dataSourceDescriptor file="userviewdesc.xml" />
+	<children>
+		<node name="DS1" fragmentationType="horizontal">
+			<dbInfo type="mysql" host="localhost" DRIVER="org.postgresql.Driver" datasource="DS1" />
+			<dataSourceDescriptor file="ds1desc.xml" />
+		</node>
+		<node name="DS2_DS3" fragmentationType="horizontal">
+			<children joincol="key2" joinTable="EMPLOYEETABLE"  type="int"> <!-- other type could be varchar -->
+				<node name="DS2" fragmentationType="vertical">
+					<dbInfo type="mysql" host="localhost" DRIVER="org.postgresql.Driver" datasource="DS2" />
+					<dataSourceDescriptor file="ds2desc.xml" />				</node>
+				<node name="DS3" fragmentationType="vertical">
+					<dbInfo type ="mysql" host="localhost" DRIVER="org.postgresql.Driver" datasource="DS3" />
+					<dataSourceDescriptor file="ds3desc.xml" />				</node>
+			</children>
+		</node>
+	</children>
+</node>
+</tree>
+
+}}}
+
+
+
+•	DataSource Descriptor (userviewdesc.xml)
+
+{{{
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+ <descriptors>
+ <descriptor>
+<datasource name="DS1">
+<table name="DS1_Table">
+  <column name="id" type="varchar" /> 
+  <column name="status" type="varchar">
+  <!--  the base is used to construct a URI for the value stored in the table
+  e.g if the table stores a value status. It would correspond to URI ${base}/status
+   -->
+  <operation type="AVH" base="www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontology="www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontLoc="ont.txt" /> 
+  </column>
+  <column name="compensation" type="float4" /> 
+  <column name="alias" type="varchar" /> 
+  <column name="servicelength" type="int4" /> 
+  </table>
+  </datasource>
+  </descriptor>
+  </descriptors>
+
+}}}
+
+•	DataSource Descriptor (ds1desc.xml)
+{{{
+`<?xml version="1.0" encoding="ISO-8859-1" ?> 
+ <descriptors>
+ <descriptor>
+<datasource name="DS1">
+<table name="DS1_Table">
+  <column name="id" type="varchar" /> 
+  <column name="status" type="varchar">
+  <!--  the base is used to construct a URI for the value stored in the table
+  e.g if the table stores a value status. It would correspond to URI ${base}/status
+   -->
+  <operation type="AVH" base="www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontology="www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH" ontLoc="ont.txt" /> 
+  </column>
+  <column name="compensation" type="float4" /> 
+  <column name="alias" type="varchar" /> 
+  <column name="servicelength" type="int4" /> 
+  </table>
+  </datasource>
+  </descriptor>
+  </descriptors>
+
+}}}
+
+•	DataSource Descriptor (ds2desc.xml)
+
+{{{
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<descriptors>
+	<descriptor>
+		<datasource name="DS2" >
+			<table name="DS2_Table">
+				<column name="ssn" type="varchar" />
+				<column name="type"  type ="varchar">
+				 <operation type="AVH" base="www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH" ontology="www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH" ontLoc="ont.txt"/> 
+				 </column>
+			</table>
+		</datasource>
+	</descriptor>
+</descriptors>
+
+ 
+}}}
+
+
+
+•	DataSource Descriptor (ds3desc.xml)
+
+{{{
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<descriptors>
+	<descriptor>
+		<datasource name="DS3" >
+			<table name="DS3_Table">
+				<column name="social" type="varchar" />
+				<column name="salary" type="float4"/>
+				<column name="nickname" type="varchar"/>
+				<column name="serviceyears" type="int4"/>
+			</table>
+		</datasource>
+	</descriptor>
+</descriptors>
+
+}}}
+
+
+•	Ontology File(ont.txt)
+{{{
+;typename=positionType
+;subTypeOf=AVH
+;ordername=ISA
+xmlns:n0=www.ailab.iastate.edu/indus/uView/ont0
+n0:positionType_AVH{
+..\positionType_AVH\grad
+..\positionType_AVH\grad\M.S
+..\positionType_AVH\grad\ph.D
+..\positionType_AVH\undergraduate
+..\positionType_AVH\undergraduate\fe
+..\positionType_AVH\undergraduate\fe\redshirt
+..\positionType_AVH\undergraduate\so
+..\positionType_AVH\undergraduate\jun
+..\positionType_AVH\undergraduate\se
+}
+
+;typename=statusType
+;subTypeOf=AVH
+;ordername=ISA
+xmlns:n1=www.ailab.iastate.edu/indus/ds/ont1
+n1:statusType_AVH{
+..\statusType_AVH\graduate
+..\statusType_AVH\graduate\mast
+..\statusType_AVH\graduate\doct
+..\statusType_AVH\undergraduate
+..\statusType_AVH\undergraduate\freshman
+..\statusType_AVH\undergraduate\sophomore
+..\statusType_AVH\undergraduate\junior
+..\statusType_AVH\undergraduate\senior
+}
+
+#Currently freely hanging nodes have some trouble
+;typename=typeType
+;subTypeOf=AVH
+;ordername=ISA
+xmlns:n2=www.ailab.iastate.edu/indus/ds/ont2
+n2:typeType_AVH{
+..\typeType_AVH\doctor
+..\typeType_AVH\master
+..\typeType_AVH\fresh
+..\typeType_AVH\soph
+..\typeType_AVH\junior
+..\typeType_AVH\senior
+}
+
+}}}
+
+
+•	Schema Map (schemamap.txt)
+{{{
+`
+#----------------------------------------------------------------------# Keys are stored from DataSorceView to UserView in the format,   name=value
+# If an conversion function is required for transforming values of the attribute between the two views, the format is
+#  
+#   name=value,exp1,exp2 where exp1 and exp2 are expressions with variable x
+#   exp1 is used to convert a value from the user view to datasource view and exp2 from datasource view to user view
+#
+#   For format of expression supported http://lts.online.fr/dev/java/math.evaluator/
+#   Expression is ignored if the column has an AVH associated with it
+#----------------------------------------------------------------------
+#DS1
+DS1.DS1_Table.id=DS1_DS2_DS3.EMPLOYEETABLE.key2
+DS1.DS1_Table.status=DS1_DS2_DS3.EMPLOYEETABLE.position
+DS1.DS1_Table.compensation=DS1_DS2_DS3.EMPLOYEETABLE.benefits,x+1,x-1
+DS1.DS1_Table.alias=DS1_DS2_DS3.EMPLOYEETABLE.firstname
+DS1.DS1_Table.servicelength=DS1_DS2_DS3.EMPLOYEETABLE.timehere,100*x,x
+
+#DS2
+DS2.DS2_Table.ssn=DS1_DS2_DS3.EMPLOYEETABLE.key2
+DS2.DS2_Table.type=DS1_DS2_DS3.EMPLOYEETABLE.position
+
+#DS3
+DS3.DS3_Table.social=DS1_DS2_DS3.EMPLOYEETABLE.key2
+DS3.DS3_Table.salary=DS1_DS2_DS3.EMPLOYEETABLE.benefits,x+1,x-1
+DS3.DS3_Table.nickname=DS1_DS2_DS3.EMPLOYEETABLE.firstname
+DS3.DS3_Table.serviceyears=DS1_DS2_DS3.EMPLOYEETABLE.timehere
+
+•	Ontology Map (ontmap.txt)
+
+#For Data Source DS1
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_junior=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_jun
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_graduate=SUPER@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_M.S
+#Also do without the mapping below (should result in empty In clause )
+#DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_undergraduate=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_undergraduate
+DS1@www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_freshman=EQUAL@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_fe
+
+#For Data Source DS2
+DS2@www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_junior=SUPER@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_redshirt
+DS2@www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_fresh=SUB@www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_undergraduate
+
 }}}
