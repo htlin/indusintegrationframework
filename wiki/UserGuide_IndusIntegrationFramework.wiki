@@ -18,7 +18,19 @@ INDUS is an open source code and is available as [http://code.google.com/p/indus
 
 ==How do/can I contribute?==
 
-You certainly may.  Contact [http://www.cs.iastate.edu/~neeraj/ Neeraj Koul] at [neeraj@cs.iastate.edu nailto:neeraj@cs.iastate.edu] for further direction.
+You certainly may.  Contact [http://www.cs.iastate.edu/~neeraj/ Neeraj Koul] at neeraj@cs.iastate.edu for further direction.
+
+
+==Using INDUS==
+
+===Environment Setup===
+
+INDUS requires a database to store temporary results (the results from queries to real data sources).  The information (name, location, and type of database) must be stated in the indus.conf file (described below).  The temporary results are deleted when they are no longer needed.
+
+===INDUS Configuration File===
+
+This is the main configuration file  that sets up the  INDUS framework.  This file has to be named *bold*indus.conf*bold*.  The   possible key/value pairs that can exist in this file are
+
 
 The following are the major classes in the learning framework.
  * *Classifier:* Interface which every new classifier must implement. Current implementation includes Naïve Bayes and Decision Trees.  
