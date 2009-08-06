@@ -5,7 +5,7 @@
 
 ===Contents===
 
-* About INDUS 	
+====About INDUS==== 	
   * What is INDUS?	
   * Where can I download/get INDUS?	
   * How do/can I contribute?	
@@ -25,7 +25,7 @@
   * Running INDUS	
   * Setup Tutorial	
   * Example Queries	
-* Credits	
+====Credits====	
 
 
 
