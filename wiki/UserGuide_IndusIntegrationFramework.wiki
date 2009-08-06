@@ -189,5 +189,20 @@ Coming soon
 The following snippet of code indicates how to integrate into your application(once the configuration files have been set as before).
 The relevant classes are: 
 
- * org.iastate.ailab.qengine.core.QueryEngine.
- * org.iastate.ailab.qengine.core.QueryResult.
+ * org.iastate.ailab.qengine.core.QueryEngine
+ * org.iastate.ailab.qengine.core.QueryResult
+
+{{{
+String baseDir; //  contains the directory that points to indus.conf 
+
+baseDir = System.getProperty("user.dir") + File.separator + "config";
+QuerEngine engine = new QueryEngine(baseDir); //configure the Engine
+
+
+String query1 = "select COUNT(*) from EMPLOYEETABLE;";
+QueryResult result1 = Engine.execute execute (query1);  //Execute a query
+
+String query2 = "select COUNT(*) from EMPLOYEETABLE where position >  'redshirt';";
+
+QueryResult result2 = Engine.execute(query2); //Execute Another Query
+}}}
