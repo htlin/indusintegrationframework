@@ -6,7 +6,7 @@
 ===Contents===
 
 ====About INDUS==== 	
-  * What is INDUS?	
+  * [What is INDUS? UserGuide_IndusIntegrationFramework#What_is_INDUS?]	
   * Where can I download/get INDUS?	
   * How do/can I contribute?	
   * Vocabulary lesson	
