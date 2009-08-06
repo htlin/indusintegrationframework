@@ -58,7 +58,7 @@ INDUS requires a database to store temporary results (the results from queries t
 This is the main configuration file  that sets up the  INDUS framework.  This file has to be named *indus.conf*.  The   possible key/value pairs that can exist in this file are
 
 
-|| *Key* || *Value* || *Comments* ||
+||--------- *Key*--------- ||--------------- *Value*------------- ||------------------------------------- *Comments*------------------------------------- ||
 
 || driver_<rdbms> || <driver_class> || Examples of <rdbms>:mysql, postgress, oracle Examples of <driver_class>:com.mysql.jdbc.Driver,org.postgresql. Driver The current version has been tested with mysql ||
 || dbname_indus || <DB_name> || Name of the database in which INDUS will store temporary results ||
@@ -234,7 +234,8 @@ QueryResult result1 = Engine.execute execute (query1);  //Execute a query
 
 ==Vocabulary lesson==
 *	ARFF file
-	  * ARFF stands for Attribute-Relation File Format.  It was developed by the    Machine Learning Project at the Department of Computer Science of The University of Waikato for use with the Weka machine learning software.
+	  * ARFF stands for Attribute-Relation File Format.  It was developed bythe       Machine Learning Project at the Department of Computer Science 
+of The University of Waikato for use with the Weka machine learning software.
 *	AVH
            * An attribute value hierarchy is… //TODO finish definition
 *	Closed-World Semantics
