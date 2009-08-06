@@ -115,12 +115,12 @@ See the appendix for an example of a Data Source Descriptor file.
 Here is the structure of a Data Source Descriptor file:
 
 || *Elements*	|| *Attributes* ||	*Subelements* ||	*Comments*||
-||descriptors||   ||		||descriptor||	Must have one or more descriptor subelement.||
+||descriptors||   		||descriptor||	Must have one or more descriptor subelement.||
 ||descriptor||	 ||	||datasource||	
 ||datasource	||name||	table||	Must have one or more table subelements.||
 ||table||	name||	column||	Must have one or more column subelements.||
 ||column||	name, type||	operation||	If the values in a column are associated with an ontology, then this element must contain a subelement operation.||
-||operation||	type, base, ontology, ontLoc	||||	ontLoc points to the file containing the ontology. ontology  is the URI of the ontology associated with the attribute type is restricted  to value AVH base is the Uri to be appended to the values of the attribute to form concepts in the ontology.||
+||operation||	type, base, ontology, ontLoc	||  ||	ontLoc points to the file containing the ontology. ontology  is the URI of the ontology associated with the attribute type is restricted  to value AVH base is the Uri to be appended to the values of the attribute to form concepts in the ontology.||
 
 
 
