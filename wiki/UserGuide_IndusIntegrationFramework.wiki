@@ -18,7 +18,7 @@ INDUS is an open source code and is available as [http://code.google.com/p/indus
 
 ==How do/can I contribute?==
 
-You certainly may.  Contact Neeraj Koul at neeraj@cs.iastate.edu for further direction.
+You certainly may.  Contact [http://www.cs.iastate.edu/~neeraj/ Neeraj Koul] at [neeraj@cs.iastate.edu nailto:neeraj@cs.iastate.edu] for further direction.
 
 The following are the major classes in the learning framework.
  * *Classifier:* Interface which every new classifier must implement. Current implementation includes Naïve Bayes and Decision Trees.  
