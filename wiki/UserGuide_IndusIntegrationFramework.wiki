@@ -32,7 +32,7 @@ INDUS requires a database to store temporary results (the results from queries t
 This is the main configuration file  that sets up the  INDUS framework.  This file has to be named *indus.conf*.  The   possible key/value pairs that can exist in this file are
 
 
-||*Key*         ||*Value*           ||*Comments*                                    ||
+||*Key*||*Value*||*Comments*||
 
 ||driver_<rdbms>||<driver_class>||Examples of <rdbms>:mysql, postgress, oracle Examples of <driver_class>:com.mysql.jdbc.Driver,org.postgresql. Driver The current version has been tested with mysql||
 ||dbname_indus||<DB_name>||Name of the database in which INDUS will store temporary results||
@@ -40,8 +40,7 @@ This is the main configuration file  that sets up the  INDUS framework.  This fi
 ||dbtype_indus||<DB_type>||Type of the database in which INDUS will store temporary results. It must match <rdbms> for one of the driver keys provided above.||
 ||<DB_name>||<username>;<password>||A user name (with read access) and password must be provided for every database||
 ||<view_filename>||<view.txt>||Path to the file  containing configuration files for view.|| 
-||<class_name_key>||<class_name>||Only applicable for developers who want to add custom implementations of  certain components (in lieu of defaults) .These entries are used by the Solution Creator.  It allows for the dynamic loading of classes other than the defaults. The possible strings for <class_name_key> can be found in:
-org.iastate.ailab.qengine.core.factories.solution.SolutionCreator. The value of <class_name> should be the fully qualified class name of a class that implements the same interface as <class_name_key>.||
+||<class_name_key>||<class_name>||hi||
 ||world_semantics||<open_or_closed>||Future use. Currently Ignored.||
 
 
