@@ -77,6 +77,18 @@ The DTreeFile describes the structure of the data aggregation tree.  It is an XM
 ||dbInfo||	||host, type||	||	
 
 
+Description of attributes:
+
+|| *Element: Attribute*	|| *Value* || *Comments* ||
+||node: name||	<unrestricted>||	This is used to uniquely identify an element node.  This name must match a name attribute of the datasource element in the Data Source Descriptor file.||
+||node: fragmentationType||	<horizontal_or_vertical>||	The fragmentation type of the element node. The value must be of the following: horizontal, vertical||
+||dataSourceDescriptor: file||	<path_to_desc>||	Relative path to the file describing the data source of the superelement node.||
+||children: joinTable||	<table_name>||	The name of the table containing the joincol attribute for this children element.||
+||children: joincol||	<column_name>||	The name of the column on which the data will be joined.  If the value of joincol is the same for two fragmented pieces of data, then each fragment is referring to the same data as a whole.||
+||dbInfo: host||	<URL_of_DB>||	Location of database described by the superelement node.||
+||dbInfo: type||	<DB_type>||	Type of the database described by the superelement node.  It must match  <rdbms> for one of the driver keys provided above.||
+
+
 
 
 The following are the major classes in the learning framework.
