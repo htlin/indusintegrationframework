@@ -213,55 +213,55 @@ QueryResult result1 = Engine.execute execute (query1);  //Execute a query
            *An attribute value hierarchy is… //TODO finish definition
 *	Closed-World Semantics
            *Under closed-world semantics, it is assumed that "if proposition P cannot be proved True, then assume that P is False”.
-o	See Open-World Semantics
-•	Current Working Directory
-o	The current working directory is specific to a process and allows that process to use file paths relative to that directory.
-o	See http://en.wikipedia.org/wiki/Working_directory
-•	Database
-o	A database is a structured collection of records or data that is stored in a computer system
-o	See http://en.wikipedia.org/wiki/Database
-o	Some popular databases are:
-	DB2 (by IBM)
-	MySQL (by MySQL AB but recently bought by Sun Microsystems)
-	Oracle (by Oracle Corporation)
-•	Data Source
-o	A data source is an abstract view of what is normally viewed as a database.  Currently, the two instances of a data source are a database and ARFF file.
-•	Data Source Tree (DTree)
-o	A data source tree is a tree where the nodes are data sources.  More specifically, the leaves are actual physical data sources and non-leaves are virtual data sources created by INDUS.  The root of this tree is the user view.
-•	Horizontal Fragmentation
-o	Data is horizontally fragmented when (possibly overlapping) subsets of data tuples are stored at different sites.
-o	See Vertical Fragmentation
-•	INDUS
-o	INDUS stands for Intelligent Data Understanding System
-o	See http://www.cild.iastate.edu/~honavar/nsfitr02.html 
-•	Java Properties file
-o	A Java Properties file is a map of keys and values.
-o	Comments in this file begin with the pound sing (#) and continue until the end of the line.
-o	See http://java.sun.com/javase/6/docs/api/java/util/Properties.html
-•	Ontology
-o	An ontology is a representation of a set of concepts within a domain and the relationships between those concepts.
-o	See http://en.wikipedia.org/wiki/Ontology_(computer_science)
-•	Open-World Semantics
-o	Under open-world semantics, if a proposition P cannot proved or disproved, then P is unknown.
-o	See Closed-World Semantics 
-•	RDBMS
-o	RDBMS stands for Relational DataBase Management System.  It is the most common type of database used to day.
-o	See http://en.wikipedia.org/wiki/Relational_database_management_system
-•	SQL
-o	It is a database programming language for reading and writing data in a database
-o	See http://en.wikipedia.org/wiki/SQL
-•	URI
-o	A Uniform Resource Identifier is a compact string of characters used to identify or name a resource.
-o	See http://en.wikipedia.org/wiki/Uniform_Resource_Identifier
-•	User View
-o	The user view is the root view of the data source tree.  The user will write queries and receive results with respect to this view.
-•	Vertical Fragmentation
-o	This occurs from distribution of subtuples of the data tuples among various sites. f
-o	See Horizontal Fragmentation
-•	XML
-o	XML stands for eXtensible Markup Language and is a general-purpose markup language
-o	Comments in this file start with “<!--" and continue until “-->” and cannot contain “--" within the comment.
-o	See http://en.wikipedia.org/wiki/XML
+*	See Open-World Semantics
+            *Current Working Directory
+	    *The current working directory is specific to a process and allows that process to use file paths relative to that directory.
+	    *See http://en.wikipedia.org/wiki/Working_directory
+*	Database
+	    *A database is a structured collection of records or data that is stored in a computer system
+	    *See http://en.wikipedia.org/wiki/Database
+	    *Some popular databases are:
+	    *DB2 (by IBM)
+            *MySQL (by MySQL AB but recently bought by Sun Microsystems)
+	    *Oracle (by Oracle Corporation)
+*	Data Source
+	    *A data source is an abstract view of what is normally viewed as a database.  Currently, the two instances of a data source are a database and ARFF file.
+*	Data Source Tree (DTree)
+	    *A data source tree is a tree where the nodes are data sources.  More specifically, the leaves are actual physical data sources and non-leaves are virtual data sources created by INDUS.  The root of this tree is the user view.
+*	Horizontal Fragmentation
+	    *Data is horizontally fragmented when (possibly overlapping) subsets of data tuples are stored at different sites.
+            *See Vertical Fragmentation
+*	INDUS
+            *INDUS stands for Intelligent Data Understanding System
+            *See http://www.cild.iastate.edu/~honavar/nsfitr02.html 
+*	Java Properties file
+	    *A Java Properties file is a map of keys and values.
+            *Comments in this file begin with the pound sing (#) and continue until the end of the line.
+            *See http://java.sun.com/javase/6/docs/api/java/util/Properties.html
+*	Ontology
+            *An ontology is a representation of a set of concepts within a domain and the relationships between those concepts.
+            *See http://en.wikipedia.org/wiki/Ontology_(computer_science)
+*	Open-World Semantics
+	    *Under open-world semantics, if a proposition P cannot proved or disproved, then P is unknown.
+*	See Closed-World Semantics 
+*	RDBMS
+            *RDBMS stands for Relational DataBase Management System.  It is the most common type of database used to day.
+	    *See http://en.wikipedia.org/wiki/Relational_database_management_system
+*	SQL
+	    *It is a database programming language for reading and writing data in a database
+	    *See http://en.wikipedia.org/wiki/SQL
+*	 URI
+	    *A Uniform Resource Identifier is a compact string of characters used to identify or name a resource.
+	    *See http://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+*	User View
+	    *The user view is the root view of the data source tree.  The user will write queries and receive results with respect to this view.
+	Vertical Fragmentation
+	    *This occurs from distribution of subtuples of the data tuples among various sites. 
+	    *See Horizontal Fragmentation
+*	XML
+	    *XML stands for eXtensible Markup Language and is a general-purpose markup language
+            *Comments in this file start with “<!--" and continue until “-->” and cannot contain “--" within the comment.
+            *See http://en.wikipedia.org/wiki/XML
 
 
 
