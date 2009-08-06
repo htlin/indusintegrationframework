@@ -11,6 +11,11 @@
 
 INDUS is a [http://www.cild.iastate.edu/~honavar/nsfitr02.html research project] under the direction of [http://www.cs.iastate.edu/~honavar/homepage.html Dr. Vasant Honavar],a professor in the [http://www.cs.iastate.edu/ Computer Science Department Computer Science Department] at [http://www.iastate.edu/ Iowa State University]. INDUS stands for Intelligent Data Understanding System.  It allows users to virtually combine data that is physically spread across many data sources and run queries on that data as though it existed in a single database.  The individual data sources can be Ontology Extended Data Sources and  the system is able to understand  queries using ontological  constructs such as superclass and subclass respectively. The user poses the queries in SQL like syntax (INDUS SQL)  which overloads the left and right angle brackets brackets (“<”  and “>”) to imply subclass and superclass respectively.
 
+
+==Where can I download/get INDUS?==
+
+INDUS is an open source code and is available as [http://code.google.com/p/indusintegrationframework/ here]. The source is provided as is without any warranty.
+
 The following are the major classes in the learning framework.
  * *Classifier:* Interface which every new classifier must implement. Current implementation includes Naïve Bayes and Decision Trees.  
 
