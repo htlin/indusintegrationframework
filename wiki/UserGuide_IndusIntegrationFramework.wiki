@@ -1,31 +1,31 @@
 =User Guide for Indus Integration Framework=
+
 ==== _IOWA STATE UNIVERSITY_ ====
-=INDUS INTEGRATION FRAMEWORK=
-=USER'S GUIDE=
+
 
 ===Contents===
 
-*About INDUS 	
-  *What is INDUS?	
-  *Where can I download/get INDUS?	
-  *How do/can I contribute?	
-  *Vocabulary lesson	
-  *Common Problems	
-  *Using INDUS	
-  *Environment Setup	
-  *Universal Configuration File	
-      #indus.conf	
-  *User Files	
-      #The User View File	
-      #Data Source Tree File (DTreeFile)	
-      #Schema Map	
-      #Ontology Map	
-      #Data Source Descriptor	
-      #OntLoc File	
-  *Running INDUS	
-  *Setup Tutorial	
-  *Example Queries	
-*Credits	
+* About INDUS 	
+  * What is INDUS?	
+  * Where can I download/get INDUS?	
+  * How do/can I contribute?	
+  * Vocabulary lesson	
+  * Common Problems	
+  * Using INDUS	
+  * Environment Setup	
+  * Universal Configuration File	
+      # indus.conf	
+  * User Files	
+      # The User View File	
+      # Data Source Tree File (DTreeFile)	
+      # Schema Map	
+      # Ontology Map	
+      # Data Source Descriptor	
+      # OntLoc File	
+  * Running INDUS	
+  * Setup Tutorial	
+  * Example Queries	
+* Credits	
 
 
 
