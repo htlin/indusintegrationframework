@@ -201,7 +201,7 @@ QuerEngine engine = new QueryEngine(baseDir); //configure the Engine
 
 String query1 = "select COUNT(*) from EMPLOYEETABLE;";
 QueryResult result1 = Engine.execute execute (query1);  //Execute a query
-
+}}}
 
 ==Common Problems==
 //TODO
