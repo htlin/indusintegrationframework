@@ -44,6 +44,22 @@ This is the main configuration file  that sets up the  INDUS framework.  This fi
 || world_semantics || <open_or_closed> || Future use. Currently Ignored. ||
 
 
+==User Configuration Files== 
+
+These  includes  configurations files to describe to data sources, ontologies (if any) associated with the attributes in the data sources and schema and ontology mappings to resolve schema and data content heterogeneity. Once these files have been set, the user can query over the disparate data sources as if it is a single datasource
+
+
+==The UserView File==
+
+This file gives a name to a user view and provides the  paths to the files that describe the DTree, SchemaMap, and  the  Ontology Map associated with this user view (See the appendix for an example of a user view file.).  The structure of  the UserView File is a It is also a Java Properties file and the   the possible key/value pairs that can exist in this file:
+
+
+||---Key---||---Value---||-------------Comments------------||
+||UserViewName||<name_of_userview>||Name of this userview||
+||DTreeFile||<path_to_DTreeFile>|| Path to the Data Agrregation Tree File||
+||SchemaMap||<path_to_schema_map>|| Path to the Schema Map File||
+||OntologyMap||<path_to_ontology_map>||	Path to the Ontology Map File||
+
 
 
 
