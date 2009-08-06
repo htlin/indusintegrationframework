@@ -116,7 +116,7 @@ Here is the structure of a Data Source Descriptor file:
 
 || *Elements*	|| *Attributes* ||	*Subelements* ||	*Comments*||
 ||descriptors||   		||descriptor||	Must have one or more descriptor subelement.||
-||descriptor||	 ||	||datasource||	
+||descriptor||	 	||datasource||	||
 ||datasource	||name||	table||	Must have one or more table subelements.||
 ||table||	name||	column||	Must have one or more column subelements.||
 ||column||	name, type||	operation||	If the values in a column are associated with an ontology, then this element must contain a subelement operation.||
