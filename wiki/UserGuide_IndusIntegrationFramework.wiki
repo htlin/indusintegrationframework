@@ -189,5 +189,6 @@ Coming soon
 The following snippet of code indicates how to integrate into your application(once the configuration files have been set as before).
 The relevant classes are 
 
-* org.iastate.ailab.qengine.core.QueryEngine 
+* org.iastate.ailab.qengine.core.QueryEngine
+ 
 * org.iastate.ailab.qengine.core.QueryResult
