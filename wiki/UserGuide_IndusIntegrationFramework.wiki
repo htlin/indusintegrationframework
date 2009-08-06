@@ -165,3 +165,29 @@ See the appendix for an example.
 ==Running Indus==
 
 ==Dependant Jars==
+
+Zql.jar -  SQL Parser  (http://www.gibello.com/code/zql/)
+
+meval.jar -  Math Evaluator (http://lts.online.fr/dev/java/math.evaluator/ )
+
+OWL API implementation - (http://owlapi.sourceforge.net/releases.html ), Not Required if you use custom ontology format. 
+
+Log4j -  (http://logging.apache.org/log4j/)
+
+MySQL  drivers for JDBC connectivity (http://www.mysql.com/products/connector/ ) 
+
+Apache Commons Lang ( http://commons.apache.org/lang/ )
+
+The lib package in the source package contains the dependant jars. User’s are required to check for license requirements (if any)
+
+==Command Line==
+
+Coming soon
+
+==API Integration==
+
+The following snippet of code indicates how to integrate into your application(once the configuration files have been set as before).
+The relevant classes are 
+
+* org.iastate.ailab.qengine.core.QueryEngine 
+* org.iastate.ailab.qengine.core.QueryResult
