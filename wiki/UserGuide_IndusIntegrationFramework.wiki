@@ -89,6 +89,41 @@ Description of attributes:
 ||dbInfo: type||	<DB_type>||	Type of the database described by the superelement node.  It must match  <rdbms> for one of the driver keys provided above.||
 
 
+==Schema Map==
+
+The Schema Map is a Java Properties file where the keys are actual table and column names that exist in real databases and their values are the table and column names from the user view (root DTree node) to which they should be mapped.
+
+See the appendix for an example of a Schema Map file.
+
+==Ontology Map==
+
+The Ontology Map is a Java Properties file that will map the names of class ids from the target data source ontologies to the ontology of the user view (root DTree node).
+
+The key/value pairs should follow the following form:
+<targetDataSource>@<ontologyId>@<classId> = [EQUAL|SUPER|SUB]@<ontologyI>@<classId>
+
+where the at sign (@) and equals sign (=) are the only literals.  Both <ontologyId> and <classId> must be valid URIs unless the <classId> begins with and underscore (_) in which case the <classId> is assumed to be relative to the <ontologyId>.  <targetDataSource> must be the value of a name attribute for some node element that is describing a real database.  The value of the key/value pair must begin with EQUAL, SUPER, or SUB, which describes the relation of the key to the value where EQUAL is the equlivance class, SUPER is the super class, and SUB is the sub class.
+
+See the appendix for an example of an Ontology Map file.
+
+==DataSource Descriptor==
+
+The Data Source Descriptor file is an XML file that describes the tables, columns, and types of data in those columns for either the virtual database that exists at the root node or for actual databases at leaf nodes.  If the attribute  a column is associated with an ontology, it also containts links to the file (or database)  containing the ontology.
+
+See the appendix for an example of a Data Source Descriptor file.
+
+Here is the structure of a Data Source Descriptor file:
+
+|| *Elements*	|| *Attributes* ||	*Subelements* ||	*Comments*||
+||descriptors||   ||		||descriptor||	Must have one or more descriptor subelement.||
+||descriptor||	 ||	||datasource||	
+||datasource	||name||	table||	Must have one or more table subelements.||
+||table||	name||	column||	Must have one or more column subelements.||
+||column||	name, type||	operation||	If the values in a column are associated with an ontology, then this element must contain a subelement operation.||
+||operation||	type, base, ontology, ontLoc	||||	ontLoc points to the file containing the ontology. ontology  is the URI of the ontology associated with the attribute type is restricted  to value AVH base is the Uri to be appended to the values of the attribute to form concepts in the ontology.||
+
+
+
 
 
 The following are the major classes in the learning framework.
