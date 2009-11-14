@@ -15,16 +15,18 @@ public class ViewConfigData {
    //DTreeFile=config/tree.xml
    //SchemaMap=config/schemamap.txt
    //OntologyMap=config/ontomap.txt
+   //OntMapProperties = config/ontmap.properties
 
    //TODO: Should we make it an singleton class
    private String viewName;
 
-   private String dTreeFile;
+   private String dTreeFile;   // tree.xml
 
    private String schemaMap;
 
-   private String ontologyMap;
+   private String ontologyMap; // We do not need
 
+   private String ontMapProperties;
    /**
     * base directory relative to which other paths are calculated. It is
     * the directory that contains the indusConfig File
@@ -53,7 +55,8 @@ public class ViewConfigData {
       viewName = config.getProperty("UserViewName");
       dTreeFile = config.getProperty("DTreeFile");
       schemaMap = config.getProperty("SchemaMap");
-      ontologyMap = config.getProperty("OntologyMap");
+      ontologyMap = config.getProperty("OntologyMap"); // null for pellet
+      ontMapProperties = config.getProperty("OntMapProperties");
       initialized = true;
    }
 
@@ -112,5 +115,16 @@ public class ViewConfigData {
    public File getConfigFile() {
       return viewConfigFile;
    }
+
+   /**
+    * Returns absolute path to the ontmap.properties file
+    * 
+    * @return
+    */
+
+   public String getOntMapProperties() {
+      return baseDirectoryAsString + File.separator + ontMapProperties;
+   }
+
 
 }
