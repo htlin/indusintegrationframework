@@ -1,39 +1,217 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns="http://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH">
-  <owl:Ontology rdf:about=""/>
-  <owl:Class rdf:ID="M.S">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="grad"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="so">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="undergraduate"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="redshirt">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="fe"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="jun">
-    <rdfs:subClassOf rdf:resource="#undergraduate"/>
-  </owl:Class>
-  <owl:Class rdf:about="#fe">
-    <rdfs:subClassOf rdf:resource="#undergraduate"/>
-  </owl:Class>
-  <owl:Class rdf:ID="ph.D">
-    <rdfs:subClassOf rdf:resource="#grad"/>
-  </owl:Class>
-  <owl:Class rdf:ID="se">
-    <rdfs:subClassOf rdf:resource="#undergraduate"/>
-  </owl:Class>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ont0 "http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#"
+     xml:base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ont0="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Academic -->
+
+    <owl:Class rdf:about="#Academic">
+        <rdfs:subClassOf rdf:resource="#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Address -->
+
+    <owl:Class rdf:about="#Address"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Article -->
+
+    <owl:Class rdf:about="#Article">
+        <rdfs:subClassOf rdf:resource="#Part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Author -->
+
+    <owl:Class rdf:about="#Author"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Book -->
+
+    <owl:Class rdf:about="#Book">
+        <rdfs:subClassOf rdf:resource="#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Booklets -->
+
+    <owl:Class rdf:about="#Booklets">
+        <rdfs:subClassOf rdf:resource="#Informal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Chapter -->
+
+    <owl:Class rdf:about="#Chapter">
+        <rdfs:subClassOf rdf:resource="#Part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Date -->
+
+    <owl:Class rdf:about="#Date"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#ISBN -->
+
+    <owl:Class rdf:about="#ISBN"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Inbook -->
+
+    <owl:Class rdf:about="#Inbook">
+        <rdfs:subClassOf rdf:resource="#Part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Informal -->
+
+    <owl:Class rdf:about="#Informal">
+        <rdfs:subClassOf rdf:resource="#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Institution -->
+
+    <owl:Class rdf:about="#Institution">
+        <rdfs:subClassOf rdf:resource="#Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#LectureNotes -->
+
+    <owl:Class rdf:about="#LectureNotes">
+        <rdfs:subClassOf rdf:resource="#Informal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#MSThesis -->
+
+    <owl:Class rdf:about="#MSThesis">
+        <rdfs:subClassOf rdf:resource="#Academic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Manuals -->
+
+    <owl:Class rdf:about="#Manuals">
+        <rdfs:subClassOf rdf:resource="#Informal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Monograph -->
+
+    <owl:Class rdf:about="#Monograph">
+        <rdfs:subClassOf rdf:resource="#Book"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Organization -->
+
+    <owl:Class rdf:about="#Organization"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Part -->
+
+    <owl:Class rdf:about="#Part">
+        <rdfs:subClassOf rdf:resource="#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#PhdThesis -->
+
+    <owl:Class rdf:about="#PhdThesis">
+        <rdfs:subClassOf rdf:resource="#Academic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Publisher -->
+
+    <owl:Class rdf:about="#Publisher">
+        <rdfs:subClassOf rdf:resource="#Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Reference -->
+
+    <owl:Class rdf:about="#Reference"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Title -->
+
+    <owl:Class rdf:about="#Title"/>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#Unpublished -->
+
+    <owl:Class rdf:about="#Unpublished">
+        <rdfs:subClassOf rdf:resource="#Informal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl#collection -->
+
+    <owl:Class rdf:about="#collection">
+        <rdfs:subClassOf rdf:resource="#Book"/>
+    </owl:Class>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+
