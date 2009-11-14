@@ -8,12 +8,15 @@ import org.apache.log4j.Logger;
 import org.iastate.ailab.qengine.core.Init;
 import org.iastate.ailab.qengine.core.reasoners.impl.MappedOntologyGraphs.MappedOntologyGraphsForDataSource;
 import org.iastate.ailab.qengine.core.reasoners.interfaces.Axiom;
+import org.semanticweb.owl.inference.OWLReasoner;
+import org.semanticweb.owl.model.OWLClass;
 
 import Zql.ZConstant;
 import Zql.ZExpression;
 
 /**
  * @author neeraj
+ * Modified by Roshan, Rohit 
  */
 public class DefaultReasonerImpl implements Reasoner {
 
@@ -107,7 +110,7 @@ public class DefaultReasonerImpl implements Reasoner {
    public ZExpression getAVHClass(URI userViewOntologyURI, URI classID,
          URI dataSourceOntologyURI, String targetDataSource, String AVHRole,
          ZExpression inp) {
-
+     // Ontmap uri, String targetDataSource, String AVHRole, ZExpression inp
       Set<URI> result;
       if (AVHRole.equals(">")) {
          result = getSuperClass(userViewOntologyURI, classID,
@@ -165,5 +168,29 @@ public class DefaultReasonerImpl implements Reasoner {
          index = result.lastIndexOf(":");
       }
       return result.substring(index + 1); //the Passed param is URI so index will not be -1
+   }
+
+ 
+   /* Modified by Roshan, Rohit
+   * Dummy implementation of pellet specific methods added to Reasoner interface.
+   * PelletReasonerImpl class has actual implementation.
+   */
+   
+   @Override
+   public Set<URI> getEquivalnetClass(OWLReasoner reasoner, OWLClass owlClassObject) {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   @Override
+   public Set<URI> getSubClass(OWLReasoner reasoner, OWLClass owlClassObject) {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   @Override
+   public Set<URI> getSuperClass(OWLReasoner reasoner, OWLClass owlClassObject) {
+      // TODO Auto-generated method stub
+      return null;
    }
 }

@@ -266,7 +266,7 @@ public class DatabaseUtils {
       String query = "CREATE TABLE " + tableName + " (";
 
       ResultSetMetaData metaData = rs.getMetaData();
-
+      int xx = metaData.getColumnCount();
       for (int i = 1; i <= metaData.getColumnCount(); i++) {
          String columnName = metaData.getColumnName(i);
          String columnType = metaData.getColumnTypeName(i);
@@ -279,7 +279,8 @@ public class DatabaseUtils {
             }
 
             query += columnName + " " + columnType;
-            if (columnType.equalsIgnoreCase("varchar")) {
+            // to-do:  
+            if (columnType.equalsIgnoreCase("varchar")||columnType.equalsIgnoreCase("char")) {
                String defaultVarcharSize = "255";
                logger.trace("Using " + defaultVarcharSize
                      + " as the size of all varchars");
