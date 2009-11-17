@@ -1,6 +1,4 @@
-#New field is added for ontmap.properties by Roshan, Rohit
-
-UserViewName=DS1_DS2
+UserViewName=DS1_DS2_DS3
 DTreeFile=tree.xml
 SchemaMap=schemamap.txt
-OntMapProperties=ontmap.properties
+OntologyMap=ontomap.txt
