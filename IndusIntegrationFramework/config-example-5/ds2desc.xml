@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<descriptors>
+	<descriptor>
+		<datasource name="DS2" >
+			<table name="DS2_Flat">
+				<column name="BookName" type="varchar" />
+				<column name="ID" type="varchar" />
+				<column name="Organization"  type ="varchar">
+				 <operation type="AVH" base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl" ontology="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl" ontLoc="ont2.owl" /> 
+				 </column>
+				 <column name="ReleaseDate" type="date" />
+				 <column name="Type"  type ="varchar">
+				 <operation type="AVH" base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl" ontology="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl" ontLoc="ont2.owl" /> 
+				 </column>
+				 <column name="Writer" type="char" />
+				 <column name="Address" type="varchar" />
+			</table>
+		</datasource>
+	</descriptor>
+</descriptors>

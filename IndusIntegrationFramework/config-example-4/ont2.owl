@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH">
+  <owl:Ontology rdf:about=""/>
+<owl:Class rdf:ID="spoofs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="comedy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="war">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="historical">
+    <owl:equivalentClass>
+      <owl:Class rdf:ID="historical"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="non_historical">
+    <owl:equivalentClass>
+      <owl:Class rdf:ID="non_historical"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="creepy">
+    <owl:equivalentClass>
+      <owl:Class rdf:ID="creepy"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="romantic">
+    <rdfs:subClassOf rdf:resource="#comedy"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="non_war">
+    <rdfs:subClassOf rdf:resource="#action"/>
+  </owl:Class>
+  
+</rdf:RDF>

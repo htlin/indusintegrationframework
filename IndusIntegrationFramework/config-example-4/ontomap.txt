@@ -1,0 +1,34 @@
+# NEW FORMAT. Allows to Read as properties
+
+#format: (targetDataSource-->userView)  UserView is always on RHS
+#targetDataSource@ontologyId@classId = [EQUAL|SUPER|SUB]@ontologyI@classId =
+#both OntoloyId and classId should be valids URI
+#exception id classId begins with "_" it means it is relative to URI of the ontologI
+
+
+#For Data Source DS1
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_comedy=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_comedy
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_action=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_action
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_drama=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_drama
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_horror=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_horror
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_romantic=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_romantic
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_war=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_war
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_creepy=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_creepy
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_comedy=SUPER@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_spoofs
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_action=SUPER@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_non_war
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_drama=SUPER@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_historical
+DS1@http\://www.ailab.iastate.edu/indus/ds/ont1/statusType_AVH@_drama=SUPER@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_non_historical
+
+
+#For Data Source DS2
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_comedy=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_comedy
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_action=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_action
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_spoofs=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_spoofs
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_romantic=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_romantic
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_war=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_war
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_non_war=EQUAL@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_non_war
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_historical=SUB@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_drama
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_non_historical=SUB@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_drama
+DS2@http\://www.ailab.iastate.edu/indus/ds/ont2/typeType_AVH@_creepy=SUB@http\://www.ailab.iastate.edu/indus/uView/ont0/positionType_AVH@_horror
+
+

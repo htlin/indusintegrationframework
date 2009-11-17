@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+ <descriptors>
+ <descriptor>
+<datasource name="DS1_DS2">
+<table name="BOOKTABLE">
+ <!-- key is reserved key word so using key2 -->
+  <column name="Address" type="varchar" /> 
+  <column name="Author" type="char" />
+  <column name="Date" type="date" />
+  <column name="ISBN" type="varchar" />
+  <column name="Organization" type="varchar">
+   <!--  the base is used to construct a URI for the value stored in the table
+  e.g if the table stores a value status. It would correspond to URI ${base}/status
+   -->
+  <operation type="AVH" base="http://WWW.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl" ontology="http://WWW.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl" ontLoc="ont0.owl" /> 
+  </column>
+  <column name="Reference" type="varchar">
+   <!--  the base is used to construct a URI for the value stored in the table
+  e.g if the table stores a value status. It would correspond to URI ${base}/status
+   -->
+  <operation type="AVH" base="http://WWW.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl" ontology="http://WWW.people.cis.ksu.edu/~roshanc//2009/8/ont0.owl" ontLoc="ont0.owl" /> 
+  </column>
+  <column name="Title" type="varchar" />   
+  </table>
+  </datasource>
+  </descriptor>
+  </descriptors>
