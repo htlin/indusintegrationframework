@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<descriptors>
+	<descriptor>
+		<datasource name="DS3" >
+			<table name="DS3_Table">
+				<column name="social" type="varchar" />
+				<column name="salary" type="float4"/>
+				<column name="nickname" type="varchar"/>
+				<column name="serviceyears" type="int4"/>
+			</table>
+		</datasource>
+	</descriptor>
+</descriptors>
