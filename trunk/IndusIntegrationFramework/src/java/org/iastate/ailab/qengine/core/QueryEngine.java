@@ -153,14 +153,7 @@ public class QueryEngine {
             }
          }
       }
-      if (tree.getQueryType() != QueryType.COUNT_QUERY) {
-         ResultSet rs = qr.getResultSet();
-         if (rs != null) {
-            display(qr.getResultSet(), System.out);
-         } else {
-            logger.warn("The ResultSet is null!");
-         }
-      }
+
       return qr;
    }
 
@@ -171,6 +164,22 @@ public class QueryEngine {
          logger.error("SQLException - Could not close the Statement: " + stmt,
                e);
       }
+   }
+
+   private void printOutput(QueryResult result) {
+      if (tree.getQueryType() != QueryType.COUNT_QUERY) {
+         ResultSet rs = result.getResultSet();
+         if (rs != null) {
+            display(rs, System.out);
+         } else {
+            logger.warn("The ResultSet is null!");
+         }
+      } else {
+         // it is a count query
+         System.out.println(" **Count Query Result ** \n");
+         System.out.println(result.getCount());
+      }
+
    }
 
    private static void display(ResultSet rs, PrintStream out) {
@@ -185,8 +194,9 @@ public class QueryEngine {
          out.println(rowHeader);
 
          String rows = "";
-         if (rs.isFirst())
+         if (rs.isFirst()) {
             out.println("Cursor at the beginning of the ResultSet");
+         }
          boolean val = rs.first();
 
          if (!val) {
@@ -205,15 +215,15 @@ public class QueryEngine {
       }
    }
 
-   public static void main(String[] arg) {
+   public static void main(String args[]) {
       //TODO  Test as a command line jar
 
       QueryEngine engine = null;
-      if (arg == null) {
+      if (args.length == 0) {
          System.out
                .println("check usage: An argument must be passed pointing to the baseDirectory");
       }
-      String baseDir = arg[0];
+      String baseDir = args[0];
       try {
          engine = new QueryEngine(baseDir);
       } catch (FileNotFoundException e) {
@@ -226,7 +236,8 @@ public class QueryEngine {
       String input = "";
       while (true) {
 
-         System.out.print("Enter query to execute or q to quit.");
+         System.out.print("Enter query to execute or q to quit. \n");
+         System.out.println("indus>");
 
          try {
             input = in.readLine();
@@ -240,7 +251,8 @@ public class QueryEngine {
             break;
          } else {
             try {
-               engine.execute(input);
+               QueryResult result = engine.execute(input);
+               engine.printOutput(result);
             } catch (Exception e) {
                System.out.println(e.getMessage());
                e.printStackTrace();
