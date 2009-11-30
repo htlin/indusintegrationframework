@@ -50,21 +50,14 @@ public static void loadToHashTableFromOntmapPropertiesFile(String ontMapproperti
       
       FileInputStream is = new FileInputStream(new File(ontMappropertiesFilePath));
       
-      System.out.println("is==null: " + is==null);
       propertiesFile.load(is);
-      System.out.println("after load");
       
       temp= propertiesFile.entrySet();
-      
-      System.out.println("temp==null: " + temp==null);
       
       Iterator it = temp.iterator();
       while(it.hasNext()){
           me = (Entry<Object, Object>) it.next(); 
-          System.out.println("me==null: " + me==null);
           ontMapPropertiesStore.put(me.getKey(), me.getValue());
-          System.out.println(me.getKey()+" "+ me.getValue());
-          
       }
    } catch (FileNotFoundException e) {
       String message = "FileNotFoundException for the ontmap.properties file: ";

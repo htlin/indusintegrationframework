@@ -78,7 +78,7 @@ public interface Reasoner {
     * the mappings between user view and data source view
     * @return
     */
-   public Set<URI> getEquivalnetClass(URI userViewOntologyURI, URI classID,
+   public Set<URI> getEquivalentClass(URI userViewOntologyURI, URI classID,
          URI dataSourceOntologyURI, String targetDataSource);
    
    /**
@@ -88,5 +88,5 @@ public interface Reasoner {
     * find the equivalent classes
     * @return Set URI where each URI points to the equivalent of the given class
     */
-   public Set<URI> getEquivalnetClass(OWLReasoner reasoner, OWLClass owlClassObject);
+   public Set<URI> getEquivalentClass(OWLReasoner reasoner, OWLClass owlClassObject);
 }

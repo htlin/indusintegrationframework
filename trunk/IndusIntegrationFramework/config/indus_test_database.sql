@@ -21,6 +21,8 @@ CREATE DATABASE ds2;
 
 CREATE DATABASE ds3;
 
+CREATE DATABASE indus;
+
 
 -- Create Tables and Insert Data
 

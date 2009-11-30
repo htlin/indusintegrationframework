@@ -97,4 +97,9 @@ public class IndusConfiguration {
       return indusConfigFile;
    }
 
+   public String getEquivalentFlag() {
+      String key = "equivalent_flag";
+      return config.getProperty(key, "IS_A");
+   }
+ 
 }
