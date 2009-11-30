@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.iastate.ailab.qengine.core.IndusConfiguration;
+import org.iastate.ailab.qengine.core.Init;
 
 import Zql.ZConstant;
 import Zql.ZExpression;
@@ -42,18 +44,30 @@ public class PelletReasonerImpl extends DefaultReasonerImpl {
 
 
    @Override
-   public Set<URI> getEquivalnetClass(OWLReasoner reasoner, OWLClass owlClassObject) {
-      
+   public Set<URI> getEquivalentClass(OWLReasoner reasoner, OWLClass owlClassObject) {
+      IndusConfiguration indusConfig = Init._this().getIndusConfiguration();
+      String equivalentFlag = indusConfig.getEquivalentFlag();
+      System.out.println("equivalentFlag: " + equivalentFlag);
       Set<URI> result = new HashSet<URI>();
       Set<OWLClass> equiClsSets;
       try {
          equiClsSets = reasoner.getEquivalentClasses(owlClassObject);
-      
       for(OWLClass ols : equiClsSets)
-   {                 
-            System.out.println(ols.getURI());
+      {                 
+            //System.out.println(ols.getURI());
             result.add(ols.getURI());
-   }
+      }
+      
+      // If equivalent_flag is set to TRUE, do not take the descendant classes 
+      if ((equivalentFlag != null) && (!equivalentFlag.equalsIgnoreCase("TRUE"))) {
+      Set<Set<OWLClass>> subClsSets;
+      subClsSets = reasoner.getDescendantClasses(owlClassObject);
+      for(OWLClass ols : OWLReasonerAdapter.flattenSetOfSets(subClsSets))
+      {                 
+               //System.out.println(ols.getURI());
+               result.add(ols.getURI());
+      }
+      } 
       } catch (OWLReasonerException e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
@@ -158,7 +172,7 @@ public class PelletReasonerImpl extends DefaultReasonerImpl {
       } else if (AVHRole.equals("<")) {
          result = getSubClass(reasoner, owlClassObject);
       } else if (AVHRole.equals("=")) {
-         result = getEquivalnetClass(reasoner, owlClassObject);
+         result = getEquivalentClass(reasoner, owlClassObject);
       } else {
          // Will not Happen
          logger.warn("UNKNOWN AVH ROLE=" + AVHRole);

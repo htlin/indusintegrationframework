@@ -32,7 +32,7 @@ public class DefaultReasonerImpl implements Reasoner {
    //Init Caches the Reasoners and hence those will be cached too
    MappedOntologyGraphs mappedGraphs = MappedOntologyGraphs._this();
 
-   public Set<URI> getEquivalnetClass(URI userViewOntologyURI, URI classID,
+   public Set<URI> getEquivalentClass(URI userViewOntologyURI, URI classID,
          URI dataSourceOntologyURI, String targetDataSource) {
 
       Set<Axiom> mappingAxioms = mapStore.getMappings(userViewOntologyURI,
@@ -119,7 +119,7 @@ public class DefaultReasonerImpl implements Reasoner {
          result = getSubClass(userViewOntologyURI, classID,
                dataSourceOntologyURI, targetDataSource);
       } else if (AVHRole.equals("=")) {
-         result = getEquivalnetClass(userViewOntologyURI, classID,
+         result = getEquivalentClass(userViewOntologyURI, classID,
                dataSourceOntologyURI, targetDataSource);
       } else {
          // Will not Happen
@@ -177,7 +177,7 @@ public class DefaultReasonerImpl implements Reasoner {
    */
    
    @Override
-   public Set<URI> getEquivalnetClass(OWLReasoner reasoner, OWLClass owlClassObject) {
+   public Set<URI> getEquivalentClass(OWLReasoner reasoner, OWLClass owlClassObject) {
       // TODO Auto-generated method stub
       return null;
    }
