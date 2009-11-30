@@ -1,4 +1,6 @@
 #New field is added for ontmap.properties by Roshan, Rohit
+# The OntMapProperties field specifies which file to look in order to find the mappings
+# between the userview ontology attribute and data source ontology attributes
 
 UserViewName=DS1_DS2
 DTreeFile=tree.xml
