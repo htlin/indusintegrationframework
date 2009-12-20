@@ -519,6 +519,8 @@ public class PelletQueryTransFormer implements QueryTransFormer {
                   try {
                      userViewClassID = URIUtils.createURI(
                            userViewAttributeValue, userViewBaseURI);
+                     userViewClassID = new URI( userViewBaseURI + "#" + userViewAttributeValue);
+                     //System.out.println("The uri, attribute, baseuri is as follows:" + userViewClassID + "\n" + userViewAttributeValue + "\n" + userViewBaseURI);
                   } catch (URISyntaxException e) {
                      throw new TranslationException(
                            "TranslationException while trying to crate a URI from the user view attribute value "
