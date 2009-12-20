@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Dec 02 14:50:59 CST 2009
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=IndusIntegrationFramework_fat.jar
+manifest.mergeall=true
+manifest.mainclass=org.iastate.ailab.qengine.core.QueryEngine
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

@@ -113,7 +113,7 @@ public class DefaultRequestFlowImplementation implements RequestFlow {
          node.setDataAggregator(aggregator);
 
          //printPlanToLogger(plan);
-         printPlan(plan);
+         //  printPlan(plan);
 
          Vector<DataNode> children = node.getChildren();
          for (int i = 0; i < children.size(); i++) {
