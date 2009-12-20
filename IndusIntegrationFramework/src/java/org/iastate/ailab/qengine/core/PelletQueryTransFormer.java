@@ -1,6 +1,5 @@
 package org.iastate.ailab.qengine.core;
 
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -17,7 +16,6 @@ import org.iastate.ailab.qengine.core.datasource.ColumnDescriptor;
 import org.iastate.ailab.qengine.core.datasource.DataNode;
 import org.iastate.ailab.qengine.core.datasource.DataSourceDescriptor;
 import org.iastate.ailab.qengine.core.exceptions.TranslationException;
-import org.iastate.ailab.qengine.core.reasoners.impl.DefaultReasonerImpl;
 import org.iastate.ailab.qengine.core.reasoners.impl.DefaultSchemaMapStoreImpl;
 import org.iastate.ailab.qengine.core.reasoners.impl.PelletReasonerImpl;
 import org.iastate.ailab.qengine.core.reasoners.impl.Reasoner;
@@ -35,10 +33,9 @@ import Zql.ZQuery;
 import Zql.ZSelectItem;
 
 /**
- * @author Roshan, Rohit
- * This class is used to transform query using Pellet Reasoner
- * Added during Pellet Reasoner Integration to INDUS, replaces 
- * DefaultReasonerImplementation class 
+ * @author Roshan, Rohit This class is used to transform query using Pellet
+ * Reasoner Added during Pellet Reasoner Integration to INDUS, replaces
+ * DefaultReasonerImplementation class
  */
 
 public class PelletQueryTransFormer implements QueryTransFormer {
@@ -474,11 +471,10 @@ public class PelletQueryTransFormer implements QueryTransFormer {
                   // ZConstant userViewNextOperand = (ZConstant)userViewOperands.get(i);
 
                   String baseURI = colDesc.getProperty("base");
-                  System.out.println("baseURI: " + baseURI);
+                  //  System.out.println("baseURI: " + baseURI);
                   String userViewBaseURI = userViewColDesc.getProperty("base");
-                  System.out.println("userViewBaseURI: " + userViewBaseURI);
-                   
-                  
+                  //  System.out.println("userViewBaseURI: " + userViewBaseURI);
+
                   if (baseURI == null || baseURI.equals(""))
                      baseURI = "indus:";
                   if (userViewBaseURI == null || userViewBaseURI.equals(""))
@@ -494,33 +490,41 @@ public class PelletQueryTransFormer implements QueryTransFormer {
                         .getColumnOntologyURI();
                   URI dataSourceOntologyURI = colDesc.getColumnOntologyURI();
 
-                  /* Preparing key(AVH-Column to AVH-Column mapping) to search for ontmap file in the
-                  * ontmap.properties file
-                  */
-                  String key1 = userViewCol.getDataSourceName() + "." + userViewCol.getTableName()+ "." + userViewCol.getAttributeName();
-                  String key2 = desc.getDSName() + "." + desc.getTableForThisColumn(colDesc.getColumnName())+ "." + colDesc.getColumnName();
+                  /*
+                   * Preparing key(AVH-Column to AVH-Column mapping) to
+                   * search for ontmap file in the ontmap.properties file
+                   */
+                  String key1 = userViewCol.getDataSourceName() + "."
+                        + userViewCol.getTableName() + "."
+                        + userViewCol.getAttributeName();
+                  String key2 = desc.getDSName() + "."
+                        + desc.getTableForThisColumn(colDesc.getColumnName())
+                        + "." + colDesc.getColumnName();
                   String key = key1 + "|" + key2;
-                  
-                  System.out.println("key: " + key);
-                  
+
+                  //  System.out.println("key: " + key);
+
                   URI ontMapURI = null;
                   String ontMapURITmp = null;
                   try {
                      ontMapURITmp = ReadPropFile.getData(key);
-                     System.out.println("key: " + key + "  " + "ontMapURITmp: " + ontMapURITmp);
+                     /*
+                      * System.out.println("key: " + key + "  " +
+                      * "ontMapURITmp: " + ontMapURITmp);
+                      */
                      if (ontMapURITmp != null)
-                           ontMapURI =  new URI(ontMapURITmp);
+                        ontMapURI = new URI(ontMapURITmp);
                   } catch (URISyntaxException e1) {
                      // TODO Auto-generated catch block
                      e1.printStackTrace();
                   }
-                  
+
                   URI userViewClassID;
                   try {
-                     userViewClassID = URIUtils.createURI(
+                     userViewClassID = URIUtils.createURIForUseByPellet(
                            userViewAttributeValue, userViewBaseURI);
-                     userViewClassID = new URI( userViewBaseURI + "#" + userViewAttributeValue);
-                     //System.out.println("The uri, attribute, baseuri is as follows:" + userViewClassID + "\n" + userViewAttributeValue + "\n" + userViewBaseURI);
+
+                     logger.trace("userViewClassID=" + userViewClassID);
                   } catch (URISyntaxException e) {
                      throw new TranslationException(
                            "TranslationException while trying to crate a URI from the user view attribute value "
@@ -531,15 +535,14 @@ public class PelletQueryTransFormer implements QueryTransFormer {
                   // new code
                   Reasoner reasoner = Init._this().getReasonerFromCache(
                         currNode.getNodeName());
-                
+
                   // This method eventually invokes pellet reasoner 
-                  exp = ((PelletReasonerImpl) reasoner).getAVHClass(
-                        ontMapURI, userViewClassID,
-                        operator, exp);
-                  
+                  exp = ((PelletReasonerImpl) reasoner).getAVHClass(ontMapURI,
+                        userViewClassID, operator, exp);
+
                   // we have to modify this method to take ontmap uri, operator, exp 
                   //
-                  
+
                } else {
                   // not overloaded '>' '<' '='. Their normal definition
                   exp.addOperand(currOperand);
@@ -557,7 +560,7 @@ public class PelletQueryTransFormer implements QueryTransFormer {
                      ZConstant convertedValue = new ZConstant(convertV,
                            ZConstant.NUMBER);
                      exp.addOperand(convertedValue);
-                     logger.debug("Appplied ConversionFunction to get "
+                     logger.trace("Appplied ConversionFunction to get "
                            + currOperand.toString() + ":userView --> " + value
                            + " mapped to  " + convertV);
 
