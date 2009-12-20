@@ -197,12 +197,12 @@ public class QueryEngine {
          if (rs.isFirst()) {
             out.println("Cursor at the beginning of the ResultSet");
          }
-         boolean val = rs.first();
+         /*boolean val = rs.first();
 
          if (!val) {
             logger
                   .debug("Could not move cursor to the beginning of the ResultSet!");
-         }
+         } */
          while (rs.next()) {
             for (int i = 1; i <= colCount; i++) {
                rows += rs.getString(i) + "\t";
