@@ -197,6 +197,8 @@ public class QueryEngine {
          if (rs.isFirst()) {
             out.println("Cursor at the beginning of the ResultSet");
          }
+         /* Making sure that cursor is at the first line */
+         rs.beforeFirst();
          /*boolean val = rs.first();
 
          if (!val) {
