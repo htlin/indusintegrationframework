@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
  * 
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses( { SanityTestQueries.class })
+@Suite.SuiteClasses( { SanityTestQueries.class, BasicQueriesPelletTest.class })
+//@Suite.SuiteClasses( { BasicQueriesPelletTest.class })
 public class AllTests {
 }
