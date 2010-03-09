@@ -56,7 +56,7 @@ public class BasicQueriesTest {
        */
 
       String baseDir = System.getProperty("user.dir") + File.separator
-            + "config-example-2";
+            + "config-example-1";
 
       try {
          engine = new QueryEngine(baseDir);

@@ -49,7 +49,7 @@ public class PelletReasonerImpl extends DefaultReasonerImpl {
          OWLClass owlClassObject) {
       IndusConfiguration indusConfig = Init._this().getIndusConfiguration();
       String equivalentFlag = indusConfig.getEquivalentFlag();
-      // System.out.println("equivalentFlag: " + equivalentFlag);
+      System.out.println("equivalentFlag: " + equivalentFlag);
       Set<URI> result = new HashSet<URI>();
       Set<OWLClass> equiClsSets;
       try {

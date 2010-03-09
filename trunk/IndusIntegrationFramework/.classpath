@@ -28,24 +28,6 @@
 	<classpathentry kind="lib" path="lib/pellet_jars/relaxngDatatype.jar"/>
 	<classpathentry kind="lib" path="lib/pellet_jars/servlet.jar"/>
 	<classpathentry kind="lib" path="lib/pellet_jars/xsdlib.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/commons-lang-2.2.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-api.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-apibinding.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-change.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-debugging.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-dig1_1.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-functionalparser.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-functionalrenderer.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-impl.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-krssparser.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-metrics.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-oboparser.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-owlxmlparser.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-owlxmlrenderer.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-rdfapi.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-rdfxmlparser.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-rdfxmlrenderer.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/owlapi-util.jar"/>
 	<classpathentry kind="lib" path="lib/matheval/meval.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
