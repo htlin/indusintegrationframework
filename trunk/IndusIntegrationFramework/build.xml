@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IndusIntegrationFramework" default="IndusIntegrationFramework">
+	<target name="IndusIntegrationFramework">
+		<jar destfile="IndusIntegrationFramework.jar">
+			<zipfileset dir="bin" prefix="" />
+			<zipfileset src="lib\log4j-1.2.15.jar" />
+            <zipfileset src="lib\mysql-connector-java-5.0.7-bin.jar" />
+			<zipfileset src="lib\postgresql-8.1-410.jdbc3.jar" />
+			<zipfileset src="lib\Zql.jar" />
+			<zipfileset src="lib\commons-lang-2.2.jar" />
+			<zipfileset src="lib\junit-4.4.jar" />
+			<zipfileset src="lib\pellet_jars\aterm-java-1.6.jar" />
+			<zipfileset src="lib\pellet_jars\owlapi-bin.jar" />
+			<zipfileset src="lib\pellet_jars\owlapi-src.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-cli.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-core.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-datatypes.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-dig.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-el.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-explanation.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-jena.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-modularity.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-owlapi.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-pellint.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-query.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-rules.jar" />
+			<zipfileset src="lib\pellet_jars\pellet-test.jar" />
+			<zipfileset src="lib\pellet_jars\relaxngDatatype.jar" />
+			<zipfileset src="lib\pellet_jars\servlet.jar" />
+			<zipfileset src="lib\pellet_jars\xsdlib.jar" />
+			<zipfileset src="lib\matheval\meval.jar" />	
+					
+			<manifest>
+				<attribute name="Main-Class" value="org.iastate.ailab.qengine.core.QueryEngine" />
+			</manifest>
+		</jar>
+	</target>
+</project>
