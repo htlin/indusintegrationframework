@@ -225,49 +225,6 @@ public class BasicQueriesTest {
    }
 
    @Test
-   public void testFixMe() throws SQLException {
-      System.out.println("testFixMe");
-
-      String query = "select key2,firstname, position from EMPLOYEETABLE;";
-
-      // String qyery  select  count(*) from EMPLOYEETABLE where position < 'undergraduate' OR benefits > 40; //fix this too
-      System.out.println("Query: " + query);
-      //In DataAggregation we are always removing join Column even if it is part of the query. We keep track of\
-      //if we added the joinColumn for handling vertical fragmentation and then only remove it
-
-      try {
-         QueryResult result = engine.execute(query);
-         Assert.assertNotNull(result);
-
-         ResultSet rs = result.getResultSet();
-         Assert.assertNotNull(rs); //should get some result
-
-         int count = rs.getMetaData().getColumnCount();
-         if (count != 3) {
-            Assert.fail("Column Count is not 3");
-         }
-
-         display(rs, query);
-      } catch (Exception e) {
-         Assert.fail(e.getMessage());
-         e.printStackTrace();
-      }
-      //TODO:  Fix when the executed query returns no results. Example:   select ssn from DS2_Table where (type IN ('XX_NOT_FOUND_XX'))
-      //Fix is to create the temporary table even if no examples are returned
-      // select  count(*) from EMPLOYEETABLE where position = 'undergraduate' OR benefits > 40;
-   }
-
-   @Test
-   public void testToDO() {
-      System.out.println("testToDO");
-
-      //#Currently freely hanging nodes have some trouble. Handle Cases where there is no subclass for a node
-      // NULL POINTER EXCEPTION in Reasoner IF YOU SPELL THE DataContentValue Wrong
-      //" select firstname, position from EMPLOYEETABLE where position <'underGGraduate';";
-      Assert.fail("Test not implemented!");
-   }
-
-   @Test
    public void testJoinColumn() throws SQLException {
       System.out.println("testJoinColumn");
 
