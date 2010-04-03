@@ -1,24 +1,13 @@
-<?xml version="1.0"?>
-
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY ont2 "http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#" >
+    <!ENTITY ont2 "http://localhost/bookExample/ont2.owl#" >
 ]>
-
-
-<rdf:RDF xmlns="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#"
-     xml:base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:ont2="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#">
+<rdf:RDF xmlns="http://localhost/bookExample/ont2.owl#" xml:base="http://localhost/bookExample/ont2.owl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ont2="http://localhost/bookExample/ont2.owl#">
     <owl:Ontology rdf:about=""/>
     
 
@@ -34,7 +23,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Article -->
+    <!-- http://localhost/bookExample/ont2.owl#Article -->
 
     <owl:Class rdf:about="#Article">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -42,13 +31,13 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#BookName -->
+    <!-- http://localhost/bookExample/ont2.owl#BookName -->
 
     <owl:Class rdf:about="#BookName"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Booklet -->
+    <!-- http://localhost/bookExample/ont2.owl#Booklet -->
 
     <owl:Class rdf:about="#Booklet">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -56,7 +45,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Chapter -->
+    <!-- http://localhost/bookExample/ont2.owl#Chapter -->
 
     <owl:Class rdf:about="#Chapter">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -64,7 +53,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Collection -->
+    <!-- http://localhost/bookExample/ont2.owl#Collection -->
 
     <owl:Class rdf:about="#Collection">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -72,7 +61,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Deliverables -->
+    <!-- http://localhost/bookExample/ont2.owl#Deliverables -->
 
     <owl:Class rdf:about="#Deliverables">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -80,13 +69,13 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#ID -->
+    <!-- http://localhost/bookExample/ont2.owl#ID -->
 
     <owl:Class rdf:about="#ID"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Lectures -->
+    <!-- http://localhost/bookExample/ont2.owl#Lectures -->
 
     <owl:Class rdf:about="#Lectures">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -94,7 +83,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Manuals -->
+    <!-- http://localhost/bookExample/ont2.owl#Manuals -->
 
     <owl:Class rdf:about="#Manuals">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -102,7 +91,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#MastersThesis -->
+    <!-- http://localhost/bookExample/ont2.owl#MastersThesis -->
 
     <owl:Class rdf:about="#MastersThesis">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -110,7 +99,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Monograph -->
+    <!-- http://localhost/bookExample/ont2.owl#Monograph -->
 
     <owl:Class rdf:about="#Monograph">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -118,13 +107,13 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Organization -->
+    <!-- http://localhost/bookExample/ont2.owl#Organization -->
 
     <owl:Class rdf:about="#Organization"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#PhdThesis -->
+    <!-- http://localhost/bookExample/ont2.owl#PhdThesis -->
 
     <owl:Class rdf:about="#PhdThesis">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -132,7 +121,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Proceedings -->
+    <!-- http://localhost/bookExample/ont2.owl#Proceedings -->
 
     <owl:Class rdf:about="#Proceedings">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -140,13 +129,13 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#ReleaseDate -->
+    <!-- http://localhost/bookExample/ont2.owl#ReleaseDate -->
 
     <owl:Class rdf:about="#ReleaseDate"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#TechReport -->
+    <!-- http://localhost/bookExample/ont2.owl#TechReport -->
 
     <owl:Class rdf:about="#TechReport">
         <rdfs:subClassOf rdf:resource="#Type"/>
@@ -154,19 +143,19 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Type -->
+    <!-- http://localhost/bookExample/ont2.owl#Type -->
 
     <owl:Class rdf:about="#Type"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#Writer -->
+    <!-- http://localhost/bookExample/ont2.owl#Writer -->
 
     <owl:Class rdf:about="#Writer"/>
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#college -->
+    <!-- http://localhost/bookExample/ont2.owl#college -->
 
     <owl:Class rdf:about="#college">
         <rdfs:subClassOf rdf:resource="#institution"/>
@@ -174,7 +163,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#institution -->
+    <!-- http://localhost/bookExample/ont2.owl#institution -->
 
     <owl:Class rdf:about="#institution">
         <rdfs:subClassOf rdf:resource="#Organization"/>
@@ -182,7 +171,7 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#publishing_house -->
+    <!-- http://localhost/bookExample/ont2.owl#publishing_house -->
 
     <owl:Class rdf:about="#publishing_house">
         <rdfs:subClassOf rdf:resource="#Organization"/>
@@ -190,14 +179,10 @@
     
 
 
-    <!-- http://www.people.cis.ksu.edu/~roshanc//2009/8/ont2.owl#university -->
+    <!-- http://localhost/bookExample/ont2.owl#university -->
 
     <owl:Class rdf:about="#university">
         <rdfs:subClassOf rdf:resource="#institution"/>
     </owl:Class>
 </rdf:RDF>
-
-
-
 <!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
-
