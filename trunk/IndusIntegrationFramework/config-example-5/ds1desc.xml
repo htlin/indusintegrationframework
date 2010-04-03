@@ -10,7 +10,7 @@
   <!--  the base is used to construct a URI for the value stored in the table
   e.g if the table stores a value status. It would correspond to URI ${base}/status
    -->
-  <operation type="AVH" base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont1.owl" ontology="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont1.owl" ontLoc="ont1.owl" /> 
+  <operation type="AVH" base="http://localhost/bookExample/ont1.owl" ontology="http://localhost/bookExample/ont1.owl" ontLoc="ont1.owl" /> 
   </column>
   <column name="ISBN" type="varchar" /> 
   <column name="Name" type="varchar" /> 
@@ -18,7 +18,7 @@
   <!--  the base is used to construct a URI for the value stored in the table
   e.g if the table stores a value status. It would correspond to URI ${base}/status
    -->
-  <operation type="AVH" base="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont1.owl" ontology="http://www.people.cis.ksu.edu/~roshanc//2009/8/ont1.owl" ontLoc="ont1.owl" /> 
+  <operation type="AVH" base="http://localhost/bookExample/ont1.owl" ontology="http://localhost/bookExample/ont1.owl" ontLoc="ont1.owl" /> 
   </column>
   <column name="Person" type="char" /> 
   <column name="PublishedOn" type="date" /> 
