@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ont1 "http://localhost/bookExample/ont1.owl#" >
+    <!ENTITY ont0 "http://localhost/bookExample/ont0.owl#" >
+]>
+<rdf:RDF xmlns="http://localhost/bookExample/ontmap1.owl#" xml:base="http://localhost/bookExample/ontmap1.owl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ont1="http://localhost/bookExample/ont1.owl#" xmlns:ont0="http://localhost/bookExample/ont0.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://localhost/bookExample/ont0.owl"/>
+        <owl:imports rdf:resource="http://localhost/bookExample/ont1.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Academic -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Academic">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#StudentReport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Book -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Book">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#Book"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Booklets -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Booklets">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#Brochure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Informal -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Informal">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#NonFormal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#LectureNotes -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#LectureNotes">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#CourseMaterials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#MSThesis -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#MSThesis">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#MScThesis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Monograph -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Monograph">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#Monograph"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#PhdThesis -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#PhdThesis">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#DoctoralThesis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#Reference -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#Reference">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#Entry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont0.owl#collection -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont0.owl#collection">
+        <owl:equivalentClass rdf:resource="http://localhost/bookExample/ont1.owl#Compilation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#Book -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#Book"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#Brochure -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#Brochure"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#Compilation -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#Compilation"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#CourseMaterials -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#CourseMaterials"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#DoctoralThesis -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#DoctoralThesis"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#Entry -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#Entry"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#MScThesis -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#MScThesis"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#Monograph -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#Monograph"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#NonFormal -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#NonFormal"/>
+    
+
+
+    <!-- http://localhost/bookExample/ont1.owl#StudentReport -->
+
+    <owl:Class rdf:about="http://localhost/bookExample/ont1.owl#StudentReport"/>
+</rdf:RDF>
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
