@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="IndusIntegrationFramework" default="IndusIntegrationFramework">
 	<target name="IndusIntegrationFramework">
-		<jar destfile="IndusIntegrationFramework.jar">
+		<jar destfile="out\IndusIntegrationFramework.jar">
 			<zipfileset dir="bin" prefix="" />
 			<zipfileset src="lib\log4j-1.2.15.jar" />
             <zipfileset src="lib\mysql-connector-java-5.0.7-bin.jar" />
@@ -34,5 +34,17 @@
 				<attribute name="Main-Class" value="org.iastate.ailab.qengine.core.QueryEngine" />
 			</manifest>
 		</jar>
+		
+		<zip destfile="indusintegrationframework.zip">
+		    
+			<zipfileset dir="out" prefix="out" />		  					    
+			<zipfileset dir="lib" prefix="lib"/>
+			<zipfileset dir="config-example-1" prefix="config-example-1"/>
+		    <zipfileset dir="config-example-2" prefix="config-example-2"/>
+		    <zipfileset dir="config-example-3" prefix="config-example-3"/>
+		    <zipfileset dir="config-example-4" prefix="config-example-4"/>
+		    <zipfileset dir="config-example-5" prefix="config-example-5"/>
+		    <zipfileset dir="config" prefix="config"/>
+		</zip>
 	</target>
 </project>
