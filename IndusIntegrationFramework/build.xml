@@ -8,8 +8,6 @@
   <property name="class" location="class"/>
   <property name="lib" location="lib"/>
   <property name="dist" location="dist"/>
-  <property name="doc" location="doc/api"/>
-  <property name="test" location="test"/>
   <property name="java_version" value="1.5"/>
 
   <path id="project.classpath">
@@ -20,7 +18,7 @@
   </path>
 
   <path id="project.base.source.files">
-    <fileset dir="${src}/java"/>
+    <fileset dir="${src}"/>
   </path>
 
   <!--
@@ -61,6 +59,7 @@
       	<manifest>
       		      <!-- Information about the program itself -->
       		      <attribute name="Implementation-Title" value="Indus Integration Framework"/>
+      		      <attribute name="Main-Class" value="org.iastate.ailab.qengine.core.QueryEngine"/>
       		      <attribute name="Implementation-Version" value="1.0.0 beta"/>
       	</manifest>
       </jar>
