@@ -1,50 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="IndusIntegrationFramework" default="IndusIntegrationFramework">
-	<target name="IndusIntegrationFramework">
-		<jar destfile="out\IndusIntegrationFramework.jar">
-			<zipfileset dir="bin" prefix="" />
-			<zipfileset src="lib\log4j-1.2.15.jar" />
-            <zipfileset src="lib\mysql-connector-java-5.0.7-bin.jar" />
-			<zipfileset src="lib\postgresql-8.1-410.jdbc3.jar" />
-			<zipfileset src="lib\Zql.jar" />
-			<zipfileset src="lib\commons-lang-2.2.jar" />
-			<zipfileset src="lib\junit-4.4.jar" />
-			<zipfileset src="lib\pellet_jars\aterm-java-1.6.jar" />
-			<zipfileset src="lib\pellet_jars\owlapi-bin.jar" />
-			<zipfileset src="lib\pellet_jars\owlapi-src.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-cli.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-core.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-datatypes.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-dig.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-el.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-explanation.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-jena.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-modularity.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-owlapi.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-pellint.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-query.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-rules.jar" />
-			<zipfileset src="lib\pellet_jars\pellet-test.jar" />
-			<zipfileset src="lib\pellet_jars\relaxngDatatype.jar" />
-			<zipfileset src="lib\pellet_jars\servlet.jar" />
-			<zipfileset src="lib\pellet_jars\xsdlib.jar" />
-			<zipfileset src="lib\matheval\meval.jar" />	
-					
-			<manifest>
-				<attribute name="Main-Class" value="org.iastate.ailab.qengine.core.QueryEngine" />
-			</manifest>
-		</jar>
-		
-		<zip destfile="indusintegrationframework.zip">
-		    
-			<zipfileset dir="out" prefix="out" />		  					    
-			<zipfileset dir="lib" prefix="lib"/>
-			<zipfileset dir="config-example-1" prefix="config-example-1"/>
-		    <zipfileset dir="config-example-2" prefix="config-example-2"/>
-		    <zipfileset dir="config-example-3" prefix="config-example-3"/>
-		    <zipfileset dir="config-example-4" prefix="config-example-4"/>
-		    <zipfileset dir="config-example-5" prefix="config-example-5"/>
-		    <zipfileset dir="config" prefix="config"/>
-		</zip>
-	</target>
+<project name="indusintegrationframework" default="compile" basedir=".">
+  <description>Intelligent Data Understanding System</description>
+  <!-- 
+    Properties
+    -->
+  <property name="src" location="src"/>
+  <property name="class" location="class"/>
+  <property name="lib" location="lib"/>
+  <property name="dist" location="dist"/>
+  <property name="doc" location="doc/api"/>
+  <property name="test" location="test"/>
+  <property name="java_version" value="1.5"/>
+
+  <path id="project.classpath">
+    <pathelement path="${class}"/>
+    <fileset dir="lib" includes="*.jar"/>
+  	<fileset dir="lib" includes="matheval/*.jar"/>
+  	<fileset dir="lib" includes="pellet_jars/*.jar"/>
+  </path>
+
+  <path id="project.base.source.files">
+    <fileset dir="${src}/java"/>
+  </path>
+
+  <!--
+    Initialization 
+    -->
+  <target name="init">
+    <!-- Create a time stamp -->
+    <tstamp/>
+    <!-- Create an output directory for class files -->
+    <mkdir dir="${class}"/>
+    <mkdir dir="${dist}"/>
+  </target>
+  
+  <!--
+    Target: compile
+    -->
+  <target
+    name="compile"
+    depends="init"
+    description="Compile all the source files">
+    <javac
+      source="${java_version}"
+      destdir="${class}"
+      classpathref="project.classpath"
+      debug="true"
+      deprecation="off"
+      listfiles="no"
+      >
+      <src path="${src}"/>
+	  <!-- compilerarg value="-Xlint:unchecked"/ --> 
+    </javac>
+  </target>
+ 
+ 
+  <!-- Create a jar file -->
+  <target name="jar" depends="compile">
+      <jar destfile="${dist}/indusintegrationframework_1.0.0Beta.jar" basedir="${class}">
+      	<manifest>
+      		      <!-- Information about the program itself -->
+      		      <attribute name="Implementation-Title" value="Indus Integration Framework"/>
+      		      <attribute name="Implementation-Version" value="1.0.0 beta"/>
+      	</manifest>
+      </jar>
+  </target>
+
 </project>
