@@ -87,7 +87,7 @@ public class PelletReasonerImpl extends DefaultReasonerImpl {
          // System.out.println("\n Now we are printing the URI's");               
 
          for (OWLClass ols : OWLReasonerAdapter.flattenSetOfSets(subClsSets)) {
-            System.out.println(ols.getURI());
+            //System.out.println(ols.getURI());
             result.add(ols.getURI());
          }
          //     System.out.println("\n");
