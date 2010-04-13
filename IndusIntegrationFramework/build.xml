@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="indusintegrationframework" default="compile" basedir=".">
-  <description>Intelligent Data Understanding System</description>
+<project name="indusintegrationframework" default="zip" basedir=".">
+  <description>INtelligent Data Understanding System - Integration Framework</description>
   <!-- 
     Properties
     -->
@@ -56,8 +56,10 @@
  
  
   <!-- Create a jar file -->
-  <target name="jar" depends="compile">
-      <jar destfile="${dist}/indusintegrationframework_1.0.0Beta.jar" basedir="${class}">
+ <!-- Notice the jar file is jaring the classes from ${class}. This my be different
+ from where eclipse put its class files (check project properties) -->
+	<target name="jar" depends="compile">
+      <jar destfile="${dist}/iif_0.1.1.jar" basedir="${class}">
       	<manifest>
       		      <!-- Information about the program itself -->
       		      <attribute name="Implementation-Title" value="Indus Integration Framework"/>
@@ -75,7 +77,7 @@
  		<fileset dir=".">  
  			<include name="config-example-1/*"/>
  			<include name="config-example-2/*"/>
- 			<include name="config-example-3/*"/>
+ 			<!-- <include name="config-example-3/*"/> -->
  			<include name="config-example-4/*"/>
  			<include name="config-example-5/*"/>
  		</fileset>
@@ -85,14 +87,23 @@
 	
 <!-- Create a zip file -->
 <target name="zip" depends="copy">
-	<zip destfile="indusintegrationframework_1.0.0Beta.zip">
-	    <zipfileset dir="dist" prefix="dist"/>
+	<zip destfile="indusintegrationframework_0.1.1.zip">
+	   <!-- <zipfileset dir="dist" prefix="dist"/> -->
+		<zipfileset dir="dist" prefix=""/>
 	    <zipfileset dir="config" prefix="config"/>
 		<zipfileset dir="lib" prefix="lib"/>
-		<zipfileset dir="class" prefix="class"/>
+		<!-- <zipfileset dir="class" prefix="class"/> -->
 		<zipfileset dir="src" prefix="src"/>
 		<zipfileset dir="." includes="build.xml"/>
 		<zipfileset dir="examples" prefix="examples"/>
 	 </zip>
 	</target>
+	<!-- Added Clean Target -->
+	<target name="clean"
+	            description="clean up" >
+	        <!-- Delete the ${class} and ${dist} directory trees -->
+	        <delete dir="${class}"/>
+	        <delete dir="${dist}"/>
+		 <delete dir="${examples}"/>
+	      </target>
 </project>
