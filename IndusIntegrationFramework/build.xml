@@ -8,7 +8,8 @@
   <property name="class" location="class"/>
   <property name="lib" location="lib"/>
   <property name="dist" location="dist"/>
-  <property name="java_version" value="1.5"/>
+ <property name="examples" location="examples"/>
+  <property name="java_version" value="1.6"/>
 
   <path id="project.classpath">
     <pathelement path="${class}"/>
@@ -27,9 +28,10 @@
   <target name="init">
     <!-- Create a time stamp -->
     <tstamp/>
-    <!-- Create an output directory for class files -->
+    <!-- Create an output directory for files -->
     <mkdir dir="${class}"/>
     <mkdir dir="${dist}"/>
+  	<mkdir dir="${examples}"/>
   </target>
   
   <!--
@@ -64,5 +66,33 @@
       	</manifest>
       </jar>
   </target>
+	
 
+<!-- Copy all examples to the main example folder -->	
+  
+<target name="copy" depends="jar">
+ 	<copy todir="examples">
+ 		<fileset dir=".">  
+ 			<include name="config-example-1/*"/>
+ 			<include name="config-example-2/*"/>
+ 			<include name="config-example-3/*"/>
+ 			<include name="config-example-4/*"/>
+ 			<include name="config-example-5/*"/>
+ 		</fileset>
+ </copy>
+</target>	
+	
+	
+<!-- Create a zip file -->
+<target name="zip" depends="copy">
+	<zip destfile="indusintegrationframework_1.0.0Beta.zip">
+	    <zipfileset dir="dist" prefix="dist"/>
+	    <zipfileset dir="config" prefix="config"/>
+		<zipfileset dir="lib" prefix="lib"/>
+		<zipfileset dir="class" prefix="class"/>
+		<zipfileset dir="src" prefix="src"/>
+		<zipfileset dir="." includes="build.xml"/>
+		<zipfileset dir="examples" prefix="examples"/>
+	 </zip>
+	</target>
 </project>
