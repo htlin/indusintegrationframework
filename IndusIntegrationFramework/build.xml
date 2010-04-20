@@ -80,6 +80,8 @@
  			<!-- <include name="config-example-3/*"/> -->
  			<include name="config-example-4/*"/>
  			<include name="config-example-5/*"/>
+ 			<include name="indus_example-2/*"/>
+ 			
  		</fileset>
  </copy>
 </target>	
@@ -97,6 +99,8 @@
 		<zipfileset dir="." includes="build.xml"/>
 		<zipfileset dir="examples" prefix="examples"/>
 	 </zip>
+	<!-- delete temporary folders -->
+	<antcall target="clean"/>
 	</target>
 	<!-- Added Clean Target -->
 	<target name="clean"
@@ -104,6 +108,6 @@
 	        <!-- Delete the ${class} and ${dist} directory trees -->
 	        <delete dir="${class}"/>
 	        <delete dir="${dist}"/>
-		 <delete dir="${examples}"/>
+		   <delete dir="${examples}"/>
 	      </target>
 </project>
