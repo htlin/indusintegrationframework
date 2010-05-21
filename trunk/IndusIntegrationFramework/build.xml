@@ -96,7 +96,7 @@
 		<zipfileset dir="lib" prefix="lib"/>
 		<!-- <zipfileset dir="class" prefix="class"/> -->
 		<zipfileset dir="src" prefix="src"/>
-		<zipfileset dir="." includes="build.xml"/>
+		<zipfileset dir="." includes="build.xml,iif.bat"/>
 		<zipfileset dir="examples" prefix="examples"/>
 	 </zip>
 	<!-- delete temporary folders -->
