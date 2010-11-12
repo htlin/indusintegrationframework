@@ -8,8 +8,12 @@
   <property name="class" location="class"/>
   <property name="lib" location="lib"/>
   <property name="dist" location="dist"/>
- <property name="examples" location="examples"/>
+  <property name="examples" location="examples"/>
   <property name="java_version" value="1.6"/>
+  <tstamp>
+	     <format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
 
   <path id="project.classpath">
     <pathelement path="${class}"/>
@@ -64,7 +68,8 @@
       		      <!-- Information about the program itself -->
       		      <attribute name="Implementation-Title" value="Indus Integration Framework"/>
       		      <attribute name="Main-Class" value="org.iastate.ailab.qengine.core.QueryEngine"/>
-      		      <attribute name="Implementation-Version" value="1.0.0 beta"/>
+      		      <attribute name="Implementation-Version" value="0.1.1 beta"/>
+      		      <attribute name="Built-Date" value="${TODAY}"/> 
       	</manifest>
       </jar>
   </target>
@@ -92,7 +97,7 @@
 	<zip destfile="indusintegrationframework_0.1.1.zip">
 	   <!-- <zipfileset dir="dist" prefix="dist"/> -->
 		<zipfileset dir="dist" prefix=""/>
-	    <zipfileset dir="config" prefix="config"/>
+	    <zipfileset dir="database_setup_examples" prefix="setup"/>
 		<zipfileset dir="lib" prefix="lib"/>
 		<!-- <zipfileset dir="class" prefix="class"/> -->
 		<zipfileset dir="src" prefix="src"/>
