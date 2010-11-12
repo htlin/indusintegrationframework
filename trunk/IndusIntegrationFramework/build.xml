@@ -103,6 +103,8 @@
 		<zipfileset dir="src" prefix="src"/>
 		<zipfileset dir="." includes="build.xml,iif.bat"/>
 		<zipfileset dir="examples" prefix="examples"/>
+		<zipfileset dir="docs"  includes="**/*.*"  prefix=""/>
+		
 	 </zip>
 	<!-- delete temporary folders -->
 	<antcall target="clean"/>
